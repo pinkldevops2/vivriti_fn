@@ -1,0 +1,19 @@
+<svg id="animatedSVG" class="mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 269 235">
+  <path class="dashedLine" d="M0.495453,0.426163c0,0,6.370027,46.903137,18.234447,72.000037C36.9643,110.998,49.107,125.45,83.8528,152.14c26.5912,20.426,62.5182,28.286,83.3572,46.286c13.172,11.377,26.049,36,26.049,36" fill="none" stroke="#0074BC" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <path class="dashedLine" d="M0.495453,0.426163L96.8774,59.569c0,0,88.5676,54,101.5916,108c7.32,30.347-5.21,66.857-5.21,66.857" fill="none" stroke="#0074BC" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <path class="dashedLine" d="M268.495,0.426163c0,0-6.37,46.903137-18.234,72.000037-18.234,38.5718-30.377,53.0238-65.123,79.7138-26.591,20.426-62.518,28.286-83.357,46.286-13.1718,11.377-26.0494,36-26.0494,36" fill="none" stroke="#f58220" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <path class="dashedLine" d="M268.495,0.426163L172.114,59.569c0,0-88.5676,54-101.5922,108-7.3195,30.347,5.2098,66.857,5.2098,66.857" fill="none" stroke="#f58220" stroke-width="1.5" stroke-dasharray="5,5"/>
+</svg>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" is:inline></script>
+<script is:client:load>
+  const lines = document.querySelectorAll(".dashedLine");
+  lines.forEach((line, i) => {
+    gsap.to(line, {
+      strokeDashoffset: -100,
+      duration: 10,
+      ease: "none",
+      repeat: -1,
+      delay: i * 0.2
+    });
+  });
+</script>

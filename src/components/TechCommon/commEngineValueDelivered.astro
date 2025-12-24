@@ -1,0 +1,78 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+---
+
+<div class="w-full xl:px-0 md:pt-[55px] md:pb-[40px] py-[40px] bg-[#F5FBFD]">
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center md:gap-30"
+    >
+      <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-4 gradient-text w-full md:w-2/12"
+      >
+        Value delivered
+      </h2>
+      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-15">
+        <div class="w-full relative valuecard">
+                <img class=" max-h-10 mb-3" src="./icons/comm1.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Operational Efficiency</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Reduces manual intervention and ensures consistent messaging across platforms. 
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/comm2.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Improved Customer Experience</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                 Delivers timely and relevant updates, enhancing trust and engagement.
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/comm3.svg"/>
+                 <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Scalability</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Handles high volumes of communication without compromising performance.
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+           <img class=" max-h-10  mb-3" src="./icons/comm4.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Regulatory Compliance</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Maintains a clear audit trail for all communications, supporting internal and external audits.
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10  mb-3" src="./icons/comm5.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Customization and Control</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                 Empowers teams to tailor messages while maintaining brand and policy integrity.
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .valuecard{
+    padding-left: 15px;
+  }
+ .valuecard::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 40px);
+    border-left: 1px dashed #F58220; 
+    left: 0;                      
+    bottom: 0;
+}
+@media (max-width: 679px) {
+    .valuecard{
+      padding-left: 5px;
+    }
+    .valuecard::before{
+      display: none;
+    }
+}
+</style>
+

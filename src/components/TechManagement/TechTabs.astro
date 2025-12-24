@@ -1,0 +1,164 @@
+---
+import CreadIQAbout from "./credIQaboutDetails.astro";
+import CredIQKeyFeature from "./credIQKeyFeature.astro";
+import CreadIQValueDelivered from "./credIQValueDelivered.astro";
+import CredIQSlider from './credIQSlider.astro';
+import Techtabsslider from "@/components/common/TechTabsSwiper";
+
+import AccreditAbout from "./AccreditaboutDetails.astro";
+import AccreditKeyFeature from "./AccreditKeyFeature.astro";
+import AccreditValueDelivered from "./AccreditValueDelivered.astro";
+import AccreditSlider from './AccreditSlider.astro';
+
+import FundAbout from "./FundaboutDetails.astro";
+import FundKeyFeature from "./FundKeyFeature.astro";
+import FundValueDelivered from "./FundValueDelivered.astro";
+import FundSlider from './FundSlider.astro';
+
+import DistributorAbout from "./DistributoraboutDetails.astro";
+import DistributorKeyFeature from "./DistributorKeyFeature.astro";
+import DistributorValueDelivered from "./DistributorValueDelivered.astro";
+import DistributorSlider from './DistributorSlider.astro';
+
+import InvestorAbout from "./InvestoraboutDetails.astro";
+import InvestorKeyFeature from "./InvestorKeyFeature.astro";
+import InvestorValueDelivered from "./InvestorValueDelivered.astro";
+import InvestorSlider from './InvestorSlider.astro';
+
+const slides1 = [
+  {
+    id: "investron",
+    num: "01",
+    title: "Investron",
+  },
+  {
+    id: "accreditation",
+    num: "02",
+    title: "Accreditation",
+  },
+ {
+    id: "fund",
+    num: "03",
+    title: "Fund",
+  },
+  {
+    id: "distributorPortal",
+    num: "04",
+    title: "Distributor Portal",
+  },
+  {
+    id: "investorportal",
+    num: "05",
+    title: "Investor Portal",
+  }
+ 
+
+];
+---
+
+<div class="w-full mx-auto relative">
+  <!-- Tab Buttons -->
+
+
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+     <section class="pt-5 pb-10 md:pb-0">
+          <div>
+            <Techtabsslider slides={slides1} client:only="react" />
+          </div>
+        </section>
+    <div class="flex justify-start">
+      <div
+        class="flex space-x-2 w-full md:max-w-fit relative items-start z-2  mb-4 md:mb-0 min-h-[30px]"
+      >
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab Panels -->
+  <div class="relative mt-0">
+    <!-- First tab visible -->
+    <div
+      id="investron"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-100 translate-y-0"
+    >
+      <section class="md:pt-6">
+       <CreadIQAbout />
+       <CredIQSlider />
+       <CredIQKeyFeature />
+       <CreadIQValueDelivered />
+      </section>
+    </div>
+
+    <!-- Second tab hidden by default -->
+    <div
+      id="accreditation"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
+    >
+      <section class="pb-0 md:pt-6">
+        <AccreditAbout />
+       <AccreditSlider />
+       <AccreditKeyFeature />
+       <AccreditValueDelivered />
+      </section>
+    </div>
+
+     <!-- thierd tab hidden by default -->
+    <div
+      id="fund"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
+    >
+      <section class="pb-0 md:pt-6">
+       <FundAbout />
+       <FundSlider />
+       <FundKeyFeature />
+       <FundValueDelivered />
+      </section>
+    </div>
+
+     <!-- fourth tab hidden by default -->
+    <div
+      id="distributorPortal"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
+    >
+      <section class="pb-0 md:pt-6">
+       <DistributorAbout />
+       <DistributorSlider />
+       <DistributorKeyFeature />
+       <DistributorValueDelivered />
+      </section>
+    </div>
+
+    <div
+      id="investorportal"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
+    >
+      <section class="pb-0 md:pt-6">
+       <InvestorAbout />
+       <InvestorSlider />
+       <InvestorKeyFeature />
+       <InvestorValueDelivered />
+      </section>
+    </div>
+
+  </div>
+</div>
+
+
+<script lang="ts">
+  window.addEventListener("tab-change", (event) => {
+    const id = event.detail.id;
+
+    const panels = document.querySelectorAll(".borrowvcl-panel");
+
+    panels.forEach((panel) => {
+      if (panel.id === id) {
+        panel.classList.remove("hidden", "opacity-0", "-translate-y-2");
+        panel.classList.add("opacity-100", "translate-y-0");
+      } else {
+        panel.classList.add("opacity-0", "-translate-y-2");
+        panel.classList.remove("opacity-100", "translate-y-0");
+        setTimeout(() => panel.classList.add("hidden"), 300);
+      }
+    });
+  });
+</script>

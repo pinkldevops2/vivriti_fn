@@ -1,0 +1,52 @@
+---
+// src/components/SliderComponent.astro
+import { onMount } from 'astro/runtime'; // Not needed for standard Astro, using script tag instead
+
+// Props to make each slider unique
+export interface Props {
+  id: string;
+  slides: string[]; // Example: array of image sources or content
+}
+
+const { id, slides } = Astro.props;
+---
+
+<div id={id} class="slick-slider-container">
+  {slides.map(slide => (
+    <div class="slide-item">
+      <!-- Your slide content goes here -->
+      <p>{slide}</p>
+    </div>
+  ))}
+</div>
+
+<script define:vars={{ id: id }}>
+  // This script runs on the client-side
+  import $ from 'jquery';
+  import 'slick-carousel';
+  import 'slick-carousel/slick/slick.css';
+  import 'slick-carousel/slick/slick-theme.css';
+
+  $(document).ready(function(){
+    // Initialize the specific slider using its unique ID
+    $(`#${id}`).slick({
+      // Your slick options here (e.g., slidesToShow, autoplay, etc.)
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      dots: true,
+      arrows: true,
+    });
+  });
+</script>
+
+<style>
+  /* Add any necessary styles for your slider items */
+  .slide-item {
+    padding: 20px;
+    text-align: center;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+  }
+</style>

@@ -1,0 +1,30 @@
+{
+  "name": "retrograde-ring",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.1",
+    "@astrojs/vercel": "^9.0.2",
+    "@tailwindcss/vite": "^4.1.16",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "aos": "^2.3.4",
+    "astro": "^5.15.2",
+    "gsap": "^3.14.2",
+    "jquery": "^3.7.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.33"
+  }
+}

@@ -1,0 +1,178 @@
+---
+import BlogCard from "@/components/common/NewsCard.astro";
+import LogoShape from '../../../public/Vivrithi_logo.svg';
+import LogoShape2 from '../../../public/logovcl.svg';
+import { GRAPHQL } from "../../config/graphql.js";
+
+const newsQuery = `{
+  news(first: 1000) {
+    nodes {
+      id
+      title
+      slug
+      content
+      date
+      featuredImage { node { sourceUrl } }
+      newsCategories { nodes { id name slug } }
+    }
+  }
+}`;
+
+let latestNews = [];
+
+try {
+  const res = await fetch(GRAPHQL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query: newsQuery }),
+  });
+  const data = await res.json();
+  latestNews = data.data.news.nodes;
+} catch (err) {
+  console.error("Failed to fetch news:", err);
+}
+
+
+//latestNews.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+
+latestNews = latestNews.slice(0, 1); 
+---
+<div class="bg-white w-full md:pt-[70px]">
+<div class="container mx-auto">
+  <div class="flex flex-wrap xl:pr-[10px] xl:pl-[15px]">
+    <div class="w-full md:w-1/2 md:pr-15">
+      <!-- Column 1 content -->
+      <div class="px-0 pb-15 md:pb-0 h-full">
+
+    <!-- Paragraph -->
+    <div data-reveal class="fade-up flex flex-col items-start  h-full justify-end gap-[20%]">
+        <h2 class="text-[28px] md:text-[35px] font-heading leading-[120%] mb-4 gradient-text">
+            <img src={LogoShape2.src} alt="Vivrithi" class="w-[250px] h-auto mx-auto md:mx-0" />
+        </h2>
+    
+        <div class="md:w-2/3 blog_banner order-2 md:order-1">
+        {latestNews.map(post => <BlogCard post={post} />)}
+        </div>
+
+       </div>
+      </div>
+    </div>
+    <div class="w-full flex flex-col sm:flex-row md:w-1/2 px-2 gap-[20px]">
+      
+      <div class="basis-1/2">
+        <div class="w-full hovergradient shrink-0 bg-[url(/who_we_are.png)] bg-cover bg-center min-h-[400px] sm:min-h-[400px] xl:aspect-31/55 lg:aspect-auto h-full  object-cover flex items-start flex-col justify-center p-5 overflow-hidden text-dispalyhover">
+                 <h2 class="text-[18px] font-heading leading-[120%] gradient-text py-5 uppercase mb-0">
+                    Who we are
+                </h2>
+                <a
+                        data-reveal
+                        class="fade-up contact_cta py-3 px-4 flex items-center gap-2 text-white uppercase hover:text-blue-600 transition my-4"
+                      >
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+                          <path d="M1 13.5001L9 7.00006L1 1.00006" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                          </svg>
+                        </span>
+                      </a>
+                <div class="hover-dispaly">
+                 <!--  <p data-reveal class="fade-up text-[18px] font-semibold mb-4">
+                Vivriti Capital (VCL) aims to bring necessary debt finance to hundreds of 
+mid-market enterprises across India. Since inception, we have been addressing the gap in India’s debt capital markets by offering customised financing solutions across diversified sectors. 
+                </p> -->
+                <p data-reveal class="fade-up font-normal text-[18px]">
+               Vivriti Capital (VCL) aims to bring necessary debt finance to hundreds of 
+mid-market enterprises across India. Since inception, we have been addressing the gap in India’s debt capital markets by offering customised financing solutions across diversified sectors.
+                </p>
+                </div>
+                
+          </div>
+      </div>
+      <div class="basis-1/2 flex flex-col">
+        <div class="w-full shrink-0 bg-[url(/vivrithi-capital.png)] bg-cover bg-center  min-h-[300px] xl:aspect-159/171 lg:aspect-auto object-cover flex items-center mb-[20px] flex-col justify-end">
+                 <h2 class="text-[18px] font-heading leading-[120%] text-white uppercase">
+                    Vivriti capital
+                </h2>
+                 <a
+                        href="https://www.vivriticapital.com"
+                        target="_blank"
+                        data-reveal
+                        class="fade-up contact_cta contact_cta5 flex items-center gap-2 text-white uppercase hover:text-blue-600 transition my-4"
+                      >
+                        <span data-text="Visit website">Visit website</span>
+                        <img src={LogoShape.src} alt="Vivrithi" class="w-5 h-5" />
+                      </a>
+          </div>
+          <div class="w-full hovergradient shrink-0 bg-[url(/what-we-do.png)] bg-cover bg-center xl:aspect-53/33 lg:aspect-auto object-cover flex items-start flex-1 p-5 flex-col justify-end overflow-hidden text-dispalyhover">
+            <div class="hover-dispaly">
+                <p data-reveal class="fade-up font-normal text-[18px]">
+                 We have supported several mid-sized companies in achieving scale and building highly successful franchises.
+                </p>
+                </div>
+                 <h2 class="text-[18px] font-heading leading-[120%] mt-4 gradient-text uppercase">
+                    what we do
+                </h2>
+                <a
+                        data-reveal
+                        class="fade-up contact_cta py-5 px-4 flex items-center gap-2 text-white uppercase hover:text-blue-600 transition my-4"
+                      >
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+                          <path d="M1 13.5001L9 7.00006L1 1.00006" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                          </svg>
+                        </span>
+                      </a>
+          </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+<style>
+
+
+.contact_cta5 {
+  padding: 10px 30px;
+  display: flex;
+  font-size: 14px;
+}
+.dashedLine3,
+	.dashedLine4 {
+	  transform: scaleX(-1)!important;
+	  transform-origin: center!important;
+	}
+.hover-dispaly{
+  position: absolute;
+  left: -200%;
+  transition: all .3s ease-in-out;
+  z-index: -2;
+  opacity: 0;
+}
+.text-dispalyhover:hover{
+  cursor: pointer;
+}
+.text-dispalyhover .contact_cta{
+  right: 0;
+  transition: all .3s ease-in-out;
+}
+.text-dispalyhover:hover .hover-dispaly{
+  left: 0;
+  opacity: 1;
+  position: relative;
+  z-index: initial;
+}
+.text-dispalyhover:hover .contact_cta {
+  right:200%;
+  position: absolute;
+  z-index: -1;
+
+}
+
+</style>
+<script>
+
+</script>

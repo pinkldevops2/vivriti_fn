@@ -1,0 +1,78 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+---
+
+<div class="w-full xl:px-0 md:pt-[55px] md:pb-[40px] py-[40px] bg-[#F5FBFD]">
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center md:gap-30"
+    >
+      <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-4 gradient-text w-full md:w-2/12"
+      >
+        Value delivered
+      </h2>
+      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-15">
+        <div class="w-full relative valuecard">
+                <img class=" max-h-10 mb-3" src="./icons/comm1.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Enhanced Productivity</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Reduces time spent searching and managing documents across teams.
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/comm2.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Improved Compliance</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                 Ensures regulatory readiness with secure access and audit trails.
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/comm3.svg"/>
+                 <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Operational Transparency</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Provides visibility into document lifecycle and usage.
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+           <img class=" max-h-10  mb-3" src="./icons/comm4.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Scalable Architecture</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Supports growing data volumes and evolving business needs.
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10  mb-3" src="./icons/comm5.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Seamless Collaboration</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                 Enables secure sharing and co-working with internal and external stakeholders.
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .valuecard{
+    padding-left: 15px;
+  }
+ .valuecard::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 40px);
+    border-left: 1px dashed #F58220; 
+    left: 0;                      
+    bottom: 0;
+}
+@media (max-width: 679px) {
+    .valuecard{
+      padding-left: 5px;
+    }
+    .valuecard::before{
+      display: none;
+    }
+}
+</style>
+

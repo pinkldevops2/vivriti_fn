@@ -1,0 +1,69 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+import LaptopFrameSlider from "@/components/common/LaptopFrameSlider";
+
+const slides = [
+  "/slides/artemis/screen1.png",
+  "/slides/artemis/screen2.png",
+  "/slides/artemis/screen3.png",
+  "/slides/artemis/screen4.png",
+];
+
+--- 
+ <div class="w-full">
+    <div class="relative overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-end md:gap-10 mb-4 md:mb-20"
+    >
+      <div class="w-full md:w-8/12">
+        <h4 class="uppercase text-[14px] text-[#F58220] mb-4">Artemis</h4>
+         <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
+      >
+       The digital backbone<br/>
+for institutional credit deployment
+      </h2>
+       <p data-reveal class="fade-up font-normal text-[17px] w-full">
+        Artemis is a new-generation loan onboarding and booking system, purpose-built for institutional lending. Designed with active capital deployment in mind, it connects corporate borrowers and financial service institutions with institutional capital.<br/><br/>
+With deep configurability, real-time controls, and workflow orchestration, Artemis enables compliant, scalable credit deployment across multiple asset classes. <br/><br/>
+More than a platform, it is an institutional capital deployment control tower. Whether you’re a corporate seeking bespoke structured finance or an NBFC scaling through co-lending, Artemis gives you the flexibility, governance, and performance advantage to stay ahead in today’s evolving credit markets.
+
+      </p>
+       <h2
+        class="text-[18px] md:text-[21px] md:text-4xl font-heading font-semibold leading-[120%] my-4 w-full"
+      >
+       Segment-tailored journeys include:
+      </h2>
+      <div class="mt-2 mb-5 desc text-sm md:text-lg">
+            <ul class="pl-4 flex flex-col gap-y-3">
+              <li class="list-disc">
+                <span class="font-semibold">Enterprise Finance (EF): </span> Configurable approval stacks, long-tenor planning tools, structured debt documentation.
+
+              </li>
+              <li class="list-disc">
+                <span class="font-semibold">Financial Services (FS): </span> Automated onboarding, line-of-credit management, disbursement turnaround time, and asset health dashboards.
+              </li>
+            </ul>
+          </div>
+      </div>
+      <div class="w-full hidden md:block md:w-4/12">
+        <div class="w-full md:flex justify-end hidden pb-8">
+          <LaptopFrameSlider
+          laptopImage="laptop_background.png"
+          slides={slides}
+          sliderId="homepage-laptop2"
+          client:only="react"
+      />
+        </div> 
+    </div>
+    </div>
+   
+  </div>
+   <!-- <div class="w-full md:flex justify-end hidden absolute xl:-top-[10px] -right-10 z-0">
+          <img src={LogoShape1.src} class="xl:min-w-[400px] lg:min-w-[350px] h-auto" />
+        </div> -->
+  </div>
+ </div>
+ 

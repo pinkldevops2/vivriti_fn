@@ -1,0 +1,33 @@
+---
+import "../styles/global.css";
+const {
+  title = "Offering Bespoke Capital Solutions | Vivriti Next",
+  description = "We deliver institutional-grade credit, capital, and risk solutions through technology-led lending and investment platforms. Get in touch.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<script src="/scripts/reveal.js" type="module" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+	</head>
+	<body class="font-sans">
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>

@@ -1,0 +1,32 @@
+---
+const { post } = Astro.props;
+
+function getReadingTime(htmlContent) {
+  if (!htmlContent) return "1 min read";
+  const text = htmlContent.replace(/<[^>]*>/g, "").trim();
+  const words = text.split(/\s+/).length;
+  return `${Math.max(1, Math.ceil(words / 200))} min read`;
+}
+
+const readTime = getReadingTime(post.content);
+---
+
+<div class="blog_card flex gap-4">
+  <div class="blog_image w-[120px] shrink-0">
+    <a href={`/news/${post.slug}`}>
+      <img
+        src={post.featuredImage?.node?.sourceUrl || "/blo_thumb.png"}
+        class="w-full object-cover min-h-[150px]"
+        alt={post.title}
+      />
+    </a>
+  </div>
+
+  <div class="blog_body flex flex-col items-start justify-center">
+    <h4><a href={`/news/${post.slug}`}>Quick Read</a></h4>
+    <span class="small text-sm gradient-text">
+      {post.newsCategories?.nodes?.[0]?.name || "Report"} | {readTime}
+    </span>
+    <p class="pt-[10px]">{post.title.slice(0, 50)}...</p>
+  </div>
+</div>

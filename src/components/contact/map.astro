@@ -1,0 +1,673 @@
+---
+import VivritiNext from '../../../public/v_next.png';
+import VivritiNextW from '../../../public/v_next_white.png';
+import VamLogo from '../../../public/vam_logo_p_orange.png';
+import VamLogoW from '../../../public/vam_logo_p.png';
+import VivCap from '../../../public/vivriti_capital.png';
+import VivCapW from '../../../public/vivriti_capital_white.png';
+---
+<div class="py-[25px] md:py-[70px] overflow-hidden">
+	<div class="container mx-auto px-4">		
+		<div class="tabs-wrapper maptabs">
+		<div class="nav-tabs mb-4 p-3">
+		<a href="javascript:void(0)" id="vnexttab" class="tab text-center relative px-5" data-target="vivriti">
+			<img src={VivritiNextW.src} alt="Vivrithi" class="mx-auto white"/>
+			<img src={VivritiNext.src} alt="Vivrithi" class="mx-auto color"/>
+		</a>
+		<a href="javascript:void(0)" class="tab text-center relative px-5" data-target="vivcap">
+			<img src={VivCapW.src} alt="Vivrithi" class="mx-auto white"/>
+			<img src={VivCap.src} alt="Vivrithi" class="mx-auto color"/>
+	</a>
+		<a href="javascript:void(0)" class="tab text-center relative px-5" data-target="vam">
+			<img src={VamLogoW.src} alt="Vivrithi" class="mx-auto white"/>
+			<img src={VamLogo.src} alt="Vivrithi" class="mx-auto color"/>
+	</a>		
+		</div>
+		</div>
+	</div>
+	<div class="container relative mx-auto px-4 pt-5 md:pt-15">
+	<h2 class="relative md:absolute md:left-[10px] text-center md:text-left md:top-[50px] text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-4 gradient-text">Our<br/>
+group’s presence</h2>
+        <div class="map_holder">
+    	<img src="image 841.png" class="blink-dots" alt="Blinking Dotted Map">
+        <div class="address_block_1 adress-content vivcap">
+        	<a href="javascript:void(0)">
+            	<span class="tooltip">
+                  <strong>Ahmedabad</strong>
+                </span>
+            </a>
+        </div>
+
+		<div class="address_block_1 adress-content vam">
+        	<a href="javascript:void(0)">
+            	<span class="tooltip">
+                  <strong>GIFT City</strong>
+                </span>
+            </a>
+        </div>
+        
+        
+        <div class="address_block_2 adress-content vivriti active">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Bangalore</strong>
+                </span></a>
+        </div>
+        
+        <div class="address_block_2 adress-content vam">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Bangalore</strong>
+                </span></a>
+        </div>
+        
+        <div class="address_block_2 adress-content vivcap">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Bangalore</strong>
+                </span></a>
+        </div>
+        
+        
+        <div class="address_block_3 adress-content vivcap">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Hyderabad</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_4 adress-content vivcap">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Kolkata</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_4 adress-content vam">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Kolkata</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_5 adress-content vivcap">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Delhi</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_5 adress-content vam">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Delhi</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_6 adress-content vivriti active">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Chennai</strong>
+                </span></a>
+        </div>
+        
+        <div class="address_block_6 adress-content vam">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Chennai</strong>
+                </span></a>
+        </div>
+        
+        <div class="address_block_6 adress-content vivcap">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Chennai</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_7 adress-content vivcap">
+        	<a href="javascript:void(0)">
+            <span class="tooltip">
+                  <strong>Gurgaon</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_8 adress-content vivcap">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Jaipur</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_9 adress-content vivcap">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Pune</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_10 adress-content vivcap">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Mumbai</strong>
+                </span></a>
+        </div>
+
+		<div class="address_block_10 adress-content vam">
+        	<a href="javascript:void(0)"><span class="tooltip">
+                  <strong>Mumbai</strong>
+                </span></a>
+        </div>
+    </div></div>
+    </div>
+    <style>
+    /* Blinking animation */
+    .blink-dots {
+        animation: blink 1.3s infinite ease-in-out;
+		width:583px;
+		height:658px;
+    }
+	.map_holder{
+		width:583px;
+		height:658px;
+		margin: auto;
+		position:relative;
+	}
+	.address_block_1 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		right:0px;
+		top:0px;
+	}
+	.address_block_1{
+	    position: absolute;
+		top: 295px;
+    	left: 63px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row-reverse;
+		min-height: 60px;
+	}
+	
+	.address_block_2{
+	    position: absolute;
+		bottom: 100px;
+    	left: 150px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row;
+		min-height: 60px;
+        z-index: 9;
+	}
+	
+	.address_block_2 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		left:0px;
+		top:0px;
+	}
+	.address_block_2 a:hover{
+		background-size: cover;
+	}
+	
+	
+	.address_block_3{
+	    position: absolute;
+		top: 382px;
+    	left: 261px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row;
+		min-height: 60px;
+	}
+
+	.address_block_3 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		left:0px;
+		bottom:0px;
+	}
+	.address_block_3 a:hover{
+		background-size: cover;
+	}
+
+
+	.address_block_4{
+	    position: absolute;
+		top: 280px;
+    	left: 356px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row;
+		min-height: 60px;
+	}
+
+	.address_block_4 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+	}
+	.address_block_4 a:hover{
+		background-size: cover;
+	}
+
+
+	.address_block_5{
+	    position: absolute;
+		top: 146px;
+    	left: 195px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row;
+		min-height: 60px;
+	}
+
+	.address_block_5 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+	}
+	.address_block_5 a:hover{
+		background-size: cover;
+	}
+
+
+
+	.address_block_6{
+	    position: absolute;
+		top: 484px;
+    	left: 216px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row;
+		min-height: 60px;
+	}
+
+	.address_block_6 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+	}
+	.address_block_6 a:hover{
+		background-size: cover;
+	}
+
+
+	.address_block_7{
+	    position: absolute;
+		top: 183px;
+    	left: 175px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row;
+		min-height: 60px;
+	}
+
+	.address_block_7 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+	}
+	.address_block_7 a:hover{
+		background-size: cover;
+	}
+	.address_block_8 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		right: 0px;
+    	top: 0px;
+	}
+	.address_block_8 a:hover{
+		background-size: cover;
+	}
+	.address_block_8{
+	    position: absolute;
+		 top: 256px;
+    	left: 134px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row-reverse;
+		min-height: 60px;
+	}
+
+	.address_block_8 .office_photo{
+		position: absolute;
+		width: 288px;
+		left: -144px;
+		top: -46px;
+		opacity:0;
+		transition:all linear 0.3s;
+	}
+	.address_block_8:hover .office_photo{
+		opacity:1;
+		top: -260px;
+	}
+	.address_block_8 .place_label{
+		position: absolute;
+        width: 180px;
+        text-align: center;
+        left: -90px;
+        top: -36px;
+		opacity:0;
+		transition:all linear 0.3s;
+	}
+	.address_block_8:hover .place_label{
+		opacity:1;
+	}
+
+
+	.address_block_9 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		right: 0px;
+		top:0px;
+	}
+	.address_block_9 a:hover{
+		background-size: cover;
+	}
+	.address_block_9{
+	    position: absolute;
+		top: 458px;
+    	left: 79px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row-reverse;
+		min-height: 60px;
+	}
+
+	.address_block_9 .office_photo{
+		position: absolute;
+		width: 288px;
+		left: -144px;
+		top: 70px;
+		opacity:0;
+		transition:all linear 0.3s;
+	}
+	.address_block_9:hover .office_photo{
+		opacity:1;
+		top: 111px;
+	}
+	.address_block_9 .place_label{
+		position: absolute;
+        width: 180px;
+        text-align: center;
+        left: -90px;
+        top: 80px;
+		opacity:0;
+		transition:all linear 0.3s;
+	}
+	.address_block_9:hover .place_label{
+		opacity:1;
+	}
+
+.address_block_10 a{
+		width:35px;
+		height:35px;
+		display:block;
+    	background-position: center center;
+		background-image:url('../../../public/black_logo.png');
+		background-repeat:no-repeat;
+		transition:all linear 0.3s;
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
+	.address_block_10 a:hover{
+		background-size: cover;
+	}
+	.address_block_10{
+	    position: absolute;
+		top: 407px;
+    	left: 68px;
+		width:35px;
+		height:35px;
+		display: flex;
+		flex-direction: row-reverse;
+		min-height: 191px;
+	}
+
+
+.adress-content.active.vivriti a{
+		background-image:url('../../../public/vnext_hover.png');
+		background-size: contain;
+}
+
+.adress-content.active.vivcap a{
+	background-image:url('../../../public/vcap_logo.png');
+	background-size: contain;
+}
+
+/* Map pin */
+.adress-content a {
+  position: absolute;
+  background-size: contain;
+}
+
+.adress-content a:hover{
+	transform:scale(1.15);
+}
+
+/* Tooltip box */
+.adress-content a .tooltip {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: #0b4edb;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 0px;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  transition: all 0.25s ease;
+  z-index: 99;
+}
+
+/* Tooltip arrow */
+.adress-content a .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 7px;
+  border-style: solid;
+  border-color: #0b4edb transparent transparent transparent;
+}
+
+/* Hover & focus */
+.adress-content a:hover .tooltip,
+.adress-content a:focus .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Tooltip title */
+.tooltip strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+
+  /* Full width container */
+    .tabs-wrapper {
+      width: 100%;
+    }
+
+    /* Tabs row */
+    .nav-tabs {
+      display: flex;
+      border: 1px dashed #ff6b00;
+    }
+
+    /* Individual tab */
+    .tab {
+      flex: 1; /* Equal width tabs */
+      padding: 10px 10px;
+      text-align: center;
+      text-decoration: none;
+      color: #0b4edb;
+      font-weight: 600;
+	  height: 60px;
+      background: #ffffff;
+      border-right: 1px solid #e6e6e6;
+      transition: background 0.3s ease, color 0.3s ease;
+	  overflow: hidden;
+    }
+
+	.tab .white {
+		top: -70px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		transition: all linear 0.3s;
+    }
+
+	.tab .color {
+		top: 12px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		transition: all linear 0.3s;
+    }
+
+	.tab:hover .white, .tab.active .white {
+		top: 12px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+    }
+
+	.tab:hover .color, .tab.active .color {
+		top: 70px;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+    }
+
+    .tab:last-child {
+      border-right: none;
+    }
+
+    /* Hover & Active */
+    .tab:hover,
+    .tab.active {
+    	background: #3BBAE2;
+    	background: linear-gradient(32deg, rgba(59, 186, 226, 1) 0%, rgba(0, 1, 138, 1) 100%);
+      	color: #ffffff;
+    }
+
+	.adress-content {
+	display: none;
+	}
+
+	.adress-content.common {
+		display: block; /* always visible */
+	}
+
+	.adress-content.active {
+	display: block;
+	}
+
+    /* Mobile handling */
+    @media (max-width: 768px) {
+      .nav-tabs {
+        overflow-x: auto;
+      }
+      .tab {
+        min-width: 140px;
+        flex: none;
+      }
+	  .maptabs a img{
+		width:80%;
+	  }
+    }
+</style>
+<script>
+
+	const vnexttab = document.querySelector("#vnexttab");
+	// 2. Add the class
+	vnexttab.classList.add("active");
+
+	document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', e => {
+    e.preventDefault();
+
+    // hide all contents
+    document.querySelectorAll('.adress-content').forEach(content =>
+      content.classList.remove('active')
+    );
+
+    // show related content
+    const target = tab.dataset.target;
+    document.querySelectorAll(`.adress-content.${target}`).forEach(block =>
+      block.classList.add('active')
+    );
+  });
+});
+</script>

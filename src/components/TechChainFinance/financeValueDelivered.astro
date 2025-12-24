@@ -1,0 +1,88 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+---
+
+<div class="w-full xl:px-0 md:pt-[55px] md:pb-[40px] py-[40px] bg-[#F5FBFD]">
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center md:gap-30"
+    >
+      <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-4 gradient-text w-full md:w-2/12"
+      >
+        Value delivered
+      </h2>
+      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-3 gap-15 ">
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/f1.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Faster Onboarding
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Drastically reduce manual work — processes that once took days now happen in hours or minutes.
+
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/f2.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Working Compliant by Default
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                 AML, KYC, and documentation flows are integrated into every step, ensuring regulatory compliance.
+
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/f3.svg"/>
+                 <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Plug, Play, Scale
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Add new products, lenders, or co-lending rules without rebuilding, just configure and go.
+
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/f4.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Real-Time Credit Intelligence
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  20+ APIs enable smarter, faster, and policy-aligned credit decisions.
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/f5.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">User-Centric Design
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                Built for credit teams, operations teams, and relationship managers with an intuitive, responsive, and frustration-free interface.
+
+                </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .valuecard{
+    padding-left: 15px;
+  }
+ .valuecard::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 60px);
+    border-left: 1px dashed #F58220; 
+    left: 0;                      
+    top: 0;
+}
+@media (max-width: 679px) {
+    .valuecard{
+      padding-left: 5px;
+    }
+    .valuecard::before{
+      display: none;
+    }
+}
+</style>
+

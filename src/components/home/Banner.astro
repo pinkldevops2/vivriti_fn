@@ -1,0 +1,351 @@
+<main class="overflow-hidden relative">
+    <div class="slider">
+      <div class="item">
+        <img src="/banners/Port.png" alt="Port" />
+        <div class="slider-content">
+          <h2 class="title">Port</h2>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/banners/Energy.png" alt="Energy" />
+        <div class="slider-content">
+          <h2 class="title">Energy</h2>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/banners/Logistics.png" alt="Logistics" />
+        <div class="slider-content">
+          <h2 class="title">Logistics</h2>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/banners/Airports.png" alt="Airports" />
+        <div class="slider-content">
+          <h2 class="title">Airports</h2>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/banners/Infrastructure.png" alt="Infrastructure" />
+        <div class="slider-content">
+          <h2 class="title">Infrastructure</h2>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/banners/Manufacturing Units.png" alt="Manufacturing Units" />
+        <div class="slider-content">
+          <h2 class="title">Manufacturing Units</h2>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/banners/Warehouses.png" alt="Warehouses" />
+        <div class="slider-content">
+          <h2 class="title">Warehouses</h2>
+        </div>
+      </div>
+      <div class="item">
+        <img src="/banners/Factories.png" alt="Factories" />
+        <div class="slider-content">
+          <h2 class="title">Factories</h2>
+        </div>
+      </div>
+       <div class="item">
+        <img src="/banners/Highways.png" alt="Factories" />
+        <div class="slider-content">
+          <h2 class="title">Highways</h2>
+        </div>
+      </div>
+       <div class="item">
+        <img src="/banners/Power Plants.png" alt="Factories" />
+        <div class="slider-content">
+          <h2 class="title">Power Plants</h2>
+        </div>
+      </div>
+    </div>
+
+    <nav class='nav hidden'>
+      <span class='prev btn hidden' name="arrow-back-outline"><svg width="45" height="15" viewBox="0 0 45 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.292941 7.98906C-0.0975572 7.594 -0.0975572 6.96084 0.292941 6.57485L6.65647 0.28476C7.04697 -0.101231 7.68009 -0.0938805 8.07059 0.301177C8.46109 0.696235 8.46109 1.3294 8.07059 1.71539L2.41412 7.30658L8.07059 13.0291C8.46109 13.4242 8.46109 14.0573 8.07059 14.4433C7.68009 14.8293 7.04697 14.822 6.65647 14.4269L0.292941 7.98906ZM44.0692 7.79016L44.0692 8.79016L1 8.29016L1 7.29016L1 6.29016L44.0692 6.79016L44.0692 7.79016Z" fill="white"/>
+        </svg>
+      </span>
+      <span class='next btn hidden' name="arrow-forward-outline"><svg width="45" height="15" viewBox="0 0 45 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M43.7754 6.73903C44.1659 7.13409 44.1659 7.76725 43.7754 8.15324L37.4119 14.4433C37.0214 14.8293 36.3883 14.822 35.9978 14.4269C35.6073 14.0319 35.6073 13.3987 35.9978 13.0127L41.6542 7.42151L35.9978 1.69899C35.6073 1.30393 35.6073 0.670767 35.9978 0.284776C36.3883 -0.101215 37.0214 -0.0938654 37.4119 0.301192L43.7754 6.73903ZM-0.000825914 6.93793L-0.000825914 5.93793L43.0684 6.43793L43.0684 7.43793L43.0684 8.43793L-0.000825914 7.93793L-0.000825914 6.93793Z" fill="white"/>
+        </svg>
+      </span>
+    </nav>
+  </main>
+  <script>
+const slider = document.querySelector(".slider");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+let autoplayInterval;
+
+// 🔹 Core navigation function
+function activate(direction) {
+  const items = document.querySelectorAll(".item");
+  if (!items.length) return;
+
+  // Remove existing active states
+  items.forEach(el => el.classList.remove("active", "active-next"));
+
+  if (direction === "next") {
+    items[1].classList.add("active-next");
+    requestAnimationFrame(() => {
+      slider.append(items[0]);
+      updateActive();
+    });
+  } else if (direction === "prev") {
+    items[items.length - 1].classList.add("active-next");
+    requestAnimationFrame(() => {
+      slider.prepend(items[items.length - 1]);
+      updateActive();
+    });
+  }
+}
+
+// 🔹 Update active slide after movement
+function updateActive() {
+  const items = document.querySelectorAll(".item");
+  items.forEach(el => el.classList.remove("active"));
+  if (items[1]) items[1].classList.add("active");
+}
+
+// 🔹 Manual click navigation
+nextBtn.addEventListener("click", () => {
+  activate("next");
+  resetAutoplay();
+});
+prevBtn.addEventListener("click", () => {
+  activate("prev");
+  resetAutoplay();
+});
+
+// 🔹 Autoplay logic (every 5 seconds)
+function startAutoplay() {
+  autoplayInterval = setInterval(() => {
+    activate("next");
+  }, 3000);
+}
+
+// 🔹 Reset autoplay timer when user interacts
+function resetAutoplay() {
+  //clearInterval(autoplayInterval);
+  //();
+}
+
+// 🔹 Initialize
+updateActive();
+startAutoplay();
+  </script>
+
+  <style>
+  main {
+    background: #202227;
+  }
+
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 525px;
+    display: flex;
+    align-items: center;
+  }
+
+  .item {
+    display: flex;
+    align-items: center;
+    width: var(--width);
+    height: calc(var(--width) * 1.5);
+    position: absolute;
+    z-index: 1;
+    border-radius: 0.25rem;
+    box-shadow: 0 12px 24px -6px black;
+    transition: left var(--speed), width var(--speed), height var(--speed),
+      border-radius var(--speed), opacity var(--speed);
+    transition-timing-function: ease-out;
+    transform-origin: center;
+    overflow: hidden;
+    will-change: transform, opacity;
+  }
+
+  .item::after {
+    slider-content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    box-shadow: 0px 0px 50px 25px rgba(0, 0, 0, 0.25) inset;
+    transition: box-shadow var(--speed);
+    will-change: transform, opacity;
+  }
+
+  .item img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .item:nth-child(1),
+  .item:nth-child(2) {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  .item:nth-child(1)::after,
+  .item:nth-child(2)::after {
+    box-shadow: 0px -50px 150px 50px rgba(0, 0, 0, 0.75) inset;
+  }
+
+  .item:nth-child(3) {
+    left: 60%;
+  }
+  .item:nth-child(4) {
+    left: calc(60% + var(--width) + var(--gap));
+  }
+  .item:nth-child(5) {
+    left: calc(60% + calc(var(--width) * 2) + calc(var(--gap) * 2));
+  }
+  .item:nth-child(6) {
+    left: calc(60% + calc(var(--width) * 3) + calc(var(--gap) * 3));
+    opacity: 0;
+  }
+  .item:nth-child(7) {
+    left: calc(60% + calc(var(--width) * 4) + calc(var(--gap) * 4));
+    opacity: 0;
+  }
+  .item:nth-child(8) {
+    left: calc(60% + calc(var(--width) * 5) + calc(var(--gap) * 5));
+    opacity: 0;
+  }
+
+  .slider-content {
+    position: absolute;
+    left: 20px;
+    bottom: 5rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
+    opacity: 1;
+    font-family: "Inter", sans-serif;
+    bottom:20px;
+  }
+
+  .slider-content .title {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+.item.active .slider-content .title,
+.item.active-next .slider-content .title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 30px;
+  text-transform: unset;
+}
+
+.item.active .slider-content,
+.item.active-next .slider-content {
+  display: flex;
+  animation: show var(--speed) ease-in-out calc(var(--speed) / 2) forwards;
+  bottom:60px;
+  width: 1280px;
+  left: calc((100% - 1280px) / 2);
+  right: auto;
+}
+
+  @keyframes show {
+    0% {
+      filter: blur(10px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 0.5rem;
+    position: absolute;
+    bottom: 60px;
+    left: 60%;
+    z-index: 5;
+    user-select: none;
+    border-radius: 9999px;
+    padding: 0.25rem;
+  }
+
+  .nav .btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    .item.active .slider-content,
+.item.active-next .slider-content{
+      width: 100%;
+      left: 40px;
+      right: auto;
+    }
+  }
+
+  @media (max-width: 900px) and (min-width: 651px) {
+    .slider-content .title {
+      font-size: 1rem;
+    }
+    .item {
+      width: 160px;
+      height: 270px;
+    }
+        .item.active .slider-content,
+.item.active-next .slider-content{
+      width: 100%;
+      left: 40px;
+      right: auto;
+    }
+  }
+
+  @media (max-width: 650px) {
+      .slider-content .title{
+        left:10px;
+        bottom:15px;
+      }
+      .item.active .slider-content,
+      .item.active-next .slider-content{
+      width: 100%;
+      left: 20px;
+      right: auto;
+      bottom:20px;
+    }
+    .item.active .slider-content .title, .item.active-next .slider-content .title{
+      font-size: 20px;
+      line-height: 24px;
+    }
+    .slider-content .title {
+        font-size:12px;
+        line-height:15px;
+    }
+    .slider{
+      height: 275px!important;
+    }
+    .item {
+      width: 130px;
+      height: 170px;
+    }
+    .nav{
+      bottom: 20px;
+    }
+  }
+</style>

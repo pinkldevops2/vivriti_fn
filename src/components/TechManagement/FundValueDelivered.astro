@@ -1,0 +1,99 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+---
+
+<div class="w-full xl:px-0 md:pt-[55px] md:pb-[40px] py-[40px] bg-[#F5FBFD]">
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center md:gap-30"
+    >
+      <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 md:mb-4 gradient-text w-full md:w-2/12"
+      >
+        Value delivered
+      </h2>
+      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-15">
+        <div class="w-full relative valuecard">
+                <img class=" max-h-10 mb-3" src="./icons/fund1.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Modular and Scalable</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Easily configure new funds and structures without coding.
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/fund2.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Flexible NAV and Distribution Logic</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                 Tailor computations to fund-specific models.
+
+
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/fund3.svg"/>
+                 <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Audit-Ready
+</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Full traceability of data, calculations, and approvals.
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+           <img class=" max-h-10  mb-3" src="./icons/fund4.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Seamless Integration
+
+
+</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Upstream and downstream modules eliminate redundant entry and ensure consistency.
+
+
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10  mb-3" src="./icons/fund5.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Insightful Reporting
+
+
+</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                Access fund-level and investor-level reports instantly.
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10  mb-3" src="./icons/fund6.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto">Built for Governance
+
+
+</h3>
+                <div class="mt-2 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                Maker-checker and committee approvals ensure operational compliance.
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .valuecard{
+    padding-left: 15px;
+  }
+ .valuecard::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 40px);
+    border-left: 1px dashed #F58220; 
+    left: 0;                      
+    bottom: 0;
+}
+@media (max-width: 679px) {
+    .valuecard{
+      padding-left: 5px;
+    }
+    .valuecard::before{
+      display: none;
+    }
+}
+</style>
+

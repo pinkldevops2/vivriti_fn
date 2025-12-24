@@ -1,0 +1,137 @@
+---
+import MarkedShape from '../../../public/MarkedShape.svg';
+import LogoAnimation from "../../components/common/logoglow.astro";
+---
+<div class="bg-white pt-8 sm:pt-0">
+    <div class="container mx-auto  px-4 lg:px-8 xl:px-4">
+  <div data-reveal class="fade-up flex flex-wrap">
+    <div class="w-full">
+      <!-- Column 1 content -->
+      <div class="  border_full_side relative">
+
+    <!-- Paragraph -->
+    <div class="pt-[25px] flex justify-start flex-col items-start">
+        <h2 class="text-[28px] md:text-4xl font-heading leading-snug mb-4 gradient-text px-4 md:px-4">
+      Driving impact by numbers  
+    </h2>
+
+
+<div class="bg-white flex flex-colbg-white flex flex-col w-full">
+
+    <div class="bar bg-[#D8F1F9] flex p-5  items-center md:items-start md:flex-row  justify-between [--target-width:100%] md:[--target-width:100%]">
+      <h3 class="bar-text text-lg uppercase text-[#1B1B1B] font-bold">finance enabled</h3>
+      <h2 class="bar-text text-[22px] md:text-[35px] font-heading text-[#1B1B1B] gradient-text whitespace-nowrap" data-target="57500">₹0+</h2>
+    </div>
+
+    <div class="bar bg-[#DDDDDD] flex p-5 justify-between items-center md:items-start md:flex-row md:mt-[-30px] [--target-width:100%] md:[--target-width:78%]">
+      <h3 class="bar-text text-lg uppercase text-[#1B1B1B] font-bold">Assets Under Management (AUM)</h3>
+      <h2 class="bar-text text-[22px] md:text-[35px] leading-[55px] font-heading text-[#1B1B1B] gradient-text whitespace-nowrap" data-target="14000">₹0+</h2>
+    </div>
+
+    <div class="bar bg-[#00018A] flex p-5 justify-between  items-center md:items-start md:flex-row md:mt-[-30px] [--target-width:100%] md:[--target-width:57%]">
+      <h3 class="bar-text text-lg uppercase text-white font-bold">enterprises supported</h3>
+      <h2 class="bar-text text-[22px] md:text-[35px] font-heading text-white gradient-text3 whitespace-nowrap" data-target="525">0+</h2>
+    </div>
+
+    <div class="bar bg-[#BFBFE1] flex p-5 justify-between  items-center md:items-start md:flex-row md:mt-[-30px] [--target-width:100%] md:[--target-width:45%]">
+      <h3 class="bar-text text-lg uppercase text-[#1B1B1B] font-bold">sectors served</h3>
+      <h2 class="bar-text text-[22px] md:text-[35px] font-heading text-[#1B1B1B] gradient-text whitespace-nowrap" data-target="55">0+</h2>
+    </div>
+
+    <div class="bar bg-[#F8F8F8] flex p-5 justify-between items-center md:items-start md:flex-row md:mt-[-30px] [--target-width:100%] md:[--target-width:35%]">
+      <h3 class="bar-text text-lg uppercase text-[#1B1B1B] font-bold">years in business</h3>
+      <h2 class="bar-text text-[22px] md:text-[35px] font-heading text-[#1B1B1B] gradient-text whitespace-nowrap" data-target="8">0+</h2>
+    </div>
+</div>
+
+
+    <div class="absolute right-[35px] bottom-[-90px] hidden md:block" >
+        <LogoAnimation/>
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<style>
+.border_full_side{
+    border: dashed 1px #F58220;
+}
+  @keyframes growBar {
+    from { width: 0%; }
+    to { width: var(--target-width); }
+  }
+  .bar {
+    width: 0%;
+    overflow: hidden;
+    animation: growBar 0.8s ease-out forwards;
+    animation-play-state: paused;
+    display: flex;
+    justify-content: space-between;
+  }
+  .bar h2{
+    line-height: 55px;
+  }
+  .bar-text {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+  .show-text .bar-text {
+    opacity: 1;
+    transform: translateY(0);
+  }
+    @media (max-width: 650px) {
+      .bar h2{
+        line-height: 36px;
+      }
+      .bar h3{
+        line-height: 19px;
+        font-size: 15px;
+      }
+    }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bars = document.querySelectorAll(".bar");
+
+    function countUp(element, target, duration = 1000) {
+      let start = 0;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          start = target;
+          clearInterval(timer);
+        }
+        if (element.textContent.includes("₹")) {
+          element.textContent = "₹" + Math.floor(start).toLocaleString() + "+";
+        } else {
+          element.textContent = Math.floor(start) + "+";
+        }
+      }, 16);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const bar = entry.target;
+            bar.style.animationPlayState = "running";
+            setTimeout(() => {
+              bar.classList.add("show-text");
+              const num = bar.querySelector("[data-target]");
+              if (num) countUp(num, parseInt(num.dataset.target));
+            }, 800);
+            observer.unobserve(bar);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    bars.forEach((bar) => observer.observe(bar));
+  });
+</script>

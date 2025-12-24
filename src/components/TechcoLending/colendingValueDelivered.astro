@@ -1,0 +1,90 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+---
+
+<div class="w-full xl:px-0 md:pt-[55px] md:pb-[40px] py-[40px] bg-[#F5FBFD]">
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-center md:gap-30"
+    >
+      <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-4 gradient-text w-full md:w-2/12"
+      >
+        Value
+delivered
+      </h2>
+      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-3 gap-15 ">
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/coi1.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Faster 
+<br/>Go-to-Market
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Launch new lending products or co-lending programs in days, not months, accelerating growth and market responsiveness.
+
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/coi2.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4"> Operational <br/>Efficiency
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                Reduce manual intervention and eliminate errors with automation across all stages of the lending lifecycle.
+
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/coi3.svg"/>
+                 <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Enhanced Credit <br/>Control
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Improve decision accuracy through integrated BRE and credit bureau checks for reliable risk management.
+
+                </div>
+        </div>
+        <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/coi4.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Scalable Partner <br/>Ecosystem
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                  Seamlessly onboard sourcing partners, co-lenders, and collection partners to expand your lending network.
+                </div>
+        </div>
+         <div class="w-full relative valuecard">
+          <img class=" max-h-10 mb-3" src="./icons/coi5.svg"/>
+                <h3 class="text-[16px] md:text-[18px] leading-[24px] font-normal uppercase min-h-auto mb-4">Custom-Fit <br/>Workflows
+</h3>
+                <div class="mt-2 mb-5 text-[16px] md:text-[18px] leading-[24px] font-normal">
+                Adapt Vivflo to match your NBFC’s processes precisely, ensuring flexibility without compromise.
+
+                </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .valuecard{
+    padding-left: 15px;
+  }
+ .valuecard::before{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: calc(100% - 30px);
+    border-left: 1px dashed #F58220; 
+    left: 0;                      
+    top: 0;
+}
+@media (max-width: 679px) {
+    .valuecard{
+      padding-left: 5px;
+    }
+    .valuecard::before{
+      display: none;
+    }
+}
+</style>
+

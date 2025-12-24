@@ -1,0 +1,19 @@
+---
+import LogoShape from '../../../public/Vivrithi_logo.svg';
+import AboutWeGoMaxSwiper from "../../components/common/AboutWeGoMaxSwiper";
+
+
+const slides = [
+  { id: "01", title: "Invest", desc: "Deploy surplus capital efficiently in fixed-income vehicles for predictable, stable returns." },
+  { id: "02", title: "Borrow", desc: "Access the right funding at the right time, with tailored structures to scale your business seamlessly." },
+  { id: "03", title: "Strategise", desc: "Get expert guidance across transactions, risk management, ESG readiness, and market opportunities — turning strategy into action." },
+  { id: "04", title: "Tech", desc: "Leverage AI-driven platforms for a wide range of financing needs, including lending, co-lending, and asset management." },
+];
+---
+
+<section class="py-6 sm:hidden block">
+		<div data-reveal class="fade-up ">
+			<AboutWeGoMaxSwiper slides={slides} client:only="react" />			
+		</div>
+	</section> 
+

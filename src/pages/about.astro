@@ -1,0 +1,43 @@
+---
+import Header from '../components/common/Header.astro';
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/common/Footer.astro';
+import FooterMobile from "../components/common/FooterMobile.astro";
+import Transforming from '@/components/about/WhoWeAre.astro';
+import BannerTop from '@/components/about/banner.astro';
+import NewCategory from '@/components/about/NewCategory.astro';
+import TabsSection from '@/components/about/commonTabs.astro';
+import MissionVission from '@/components/about/WhatWeStand.astro';
+import ImpactByNumber from '@/components/about/ImpactByNumber.astro';
+import WhyVCL from '@/components/about/WeGoMaximum.astro';
+import WeGoMaxMobile from '@/components/about/WeGoMaxMobile.astro';
+import BuildOnData from '@/components/about/BuildOnData.astro';
+import Business from '@/components/about/YourBusiness.astro';
+import Milestone from '@/components/about/milestone.astro';
+import TeamMember from '@/components/about/MemberTabs.astro';
+import ContactButton from '../components/common/HomeGetInTouch.jsx';
+
+
+---
+
+
+<Layout
+    title="Institutional Credit and Capital Platform | Vivriti Next"
+    description="Vivriti is a fintech platform delivering structured debt, working capital, and risk-led capital solutions for India’s mid-market enterprises. Contact us."
+>
+    <ContactButton label={"Let’s Secure Your Future"} href={"/contact-us?segment=other#leadgen"} />
+<Header />
+<BannerTop/>
+<NewCategory/>
+<TabsSection/>
+<MissionVission/>
+<WhyVCL/>
+<!-- <WeGoMaxMobile/> -->
+<!-- <BuildOnData/>
+<Business/>
+<Milestone/> -->
+<TeamMember/>
+	
+<Footer />
+<FooterMobile/>
+</Layout>

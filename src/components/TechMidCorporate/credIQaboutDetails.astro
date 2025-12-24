@@ -1,0 +1,49 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+import LaptopFrameSlider from "@/components/common/LaptopFrameSlider";
+
+const slides = [
+  "/slides/credlyst/screen1.png",
+  "/slides/credlyst/screen2.png",
+  "/slides/credlyst/screen3.png",
+  "/slides/credlyst/screen4.png",
+];
+--- 
+ <div class="w-full">
+    <div class="relative overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-end md:gap-10 mb-4 md:mb-20"
+    >
+      <div class="w-full md:w-8/12">
+        <h4 class="uppercase text-[14px] text-[#F58220] mb-4">Credlyst</h4>
+         <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
+      >
+      Advanced credit and risk engine for <br/>NBFCs and lenders
+      </h2>
+       <p data-reveal class="fade-up font-normal text-[17px] w-full">
+        Credlyst is a specialised underwriting and risk evaluation platform designed to empower NBFCs with comprehensive credit assessment capabilities. It provides a structured framework for risk evaluation, combining financial health analysis, repayment capacity assessment, and sectoral or geographical exposure insights.<br/><br/>
+With automated CIR generation using major bureaus like CIBIL and custom risk flags for delinquencies and credit utilisation patterns, Credlyst ensures regulatory compliance and disciplined underwriting across retail, MSME, and corporate lending segments.
+      </p>
+      </div>
+      <div class="w-full hidden md:block md:w-4/12">
+        <div class="w-full md:flex justify-end hidden">
+          <LaptopFrameSlider
+          laptopImage="laptop_background.png"
+          slides={slides}
+          sliderId="homepage-laptop"
+          client:only="react"
+      />
+        </div> 
+    </div>
+    </div>
+   
+  </div>
+   <!-- <div class="w-full md:flex justify-end hidden absolute xl:-top-[10px] -right-10 z-0">
+          <img src={LogoShape1.src} class="xl:min-w-[400px] lg:min-w-[350px] h-auto" />
+        </div> -->
+  </div>
+ </div>
+ 

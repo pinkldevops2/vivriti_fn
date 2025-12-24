@@ -1,0 +1,125 @@
+---
+import LogoShape from '../../../public/Vivrithi_logo.svg';
+
+---
+<div class="bg-white w-full xl:px-0 md:px-[10px] md:pt-[0px] pt-[0px] px-[20px]">
+<div class="container mx-auto">
+  <div class="flex flex-wrap xl:pr-[10px] xl:pl-[15px]">
+    <div class="w-full md:w-1/2 pr-0 md:pr-15">
+      <!-- Column 1 content -->
+      <div class="px-0 pb-15 md:pb-0 h-full">
+
+    <!-- Paragraph -->
+    <div data-reveal class="fade-up flex flex-col items-start  h-full justify-center">
+        <h2 class="text-[28px] md:text-4xl font-heading leading-[120%] mb-4 gradient-text">
+            Lorem ipsum dolor sit amet consectetur. Ut.
+        </h2>
+        <p data-reveal class="fade-up font-normal text-[17px] ">
+                Lorem ipsum dolor sit amet consectetur. Nunc vel ac orci non massa. Suspendisse in purus lorem libero praesent arcu vestibulum bibendum tempus.
+                </p>
+        
+
+       </div>
+      </div>
+    </div>
+    <div class="w-full flex flex-col sm:flex-row md:w-1/2 px-2 gap-[20px]">
+      
+      <div class="basis-1/2">
+        <div class="w-full shrink-0 bg-[url(/who_we_are.png)] bg-cover bg-center min-h-[450px] sm:min-h-[450px] xl:aspect-31/52 lg:aspect-auto h-full  object-cover flex items-start flex-col justify-center p-5 overflow-hidden text-dispalyhover">
+                 <h2 class="text-[17px] font-heading leading-[120%] gradient-text py-5 uppercase mb-0">
+                    Mission
+                </h2>
+                <a
+                        data-reveal
+                        class="fade-up contact_cta py-3 px-4 flex items-center gap-2 text-white uppercase hover:text-blue-600 transition my-4"
+                      >
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+                          <path d="M1 13.5001L9 7.00006L1 1.00006" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                          </svg>
+                        </span>
+                      </a>
+                <div class="hover-dispaly">
+                  <p data-reveal class="fade-up font-normal text-[17px]  mb-4">
+                Become India’s first integrated mid-market debt solutions provider
+                </p>
+                 <!--  <p data-reveal class="fade-up text-[17px] font-semibold">
+                 As part of the Vivriti Group, which over the last 8+ years has built a trusted franchise with ₹13,000+ crore in assets, VAM supports 500+ enterprises across 55+ sectors and 20+ states.
+                </p> -->
+                
+                </div>
+                
+          </div>
+      </div>
+      <div class="basis-1/2 flex flex-col">
+        
+          <div class="w-full shrink-0 bg-[url(/what-we-do.png)] bg-cover bg-center xl:aspect-53/43 lg:aspect-auto object-cover flex items-start flex-1 p-5 flex-col justify-end overflow-hidden text-dispalyhover">
+            <div class="hover-dispaly">
+                <p data-reveal class="fade-up font-normal text-[17px]">
+                 We provide scalable, purpose-driven capital beyond traditional debt — with discipline, transparency, and risk management to deliver real business outcomes.
+                </p>
+                </div>
+                 <h2 class="text-[17px] font-heading leading-[120%] mt-4 gradient-text uppercase">
+                    Vision
+                </h2>
+                <a
+                        data-reveal
+                        class="fade-up contact_cta px-[14px] py-[12px] flex items-center gap-2 text-white uppercase hover:text-blue-600 transition my-4"
+                      >
+                        <span>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+                          <path d="M1 13.5001L9 7.00006L1 1.00006" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                          </svg>
+                        </span>
+                      </a>
+          </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+
+<style>
+
+
+.contact_cta5 {
+  padding: 10px 30px;
+  display: flex;
+  font-size: 14px;
+}
+.dashedLine3,
+	.dashedLine4 {
+	  transform: scaleX(-1)!important;
+	  transform-origin: center!important;
+	}
+.hover-dispaly{
+  position: absolute;
+  left: -200%;
+  transition: all .3s ease-in-out;
+  z-index: -2;
+}
+.text-dispalyhover:hover{
+  cursor: pointer;
+}
+.text-dispalyhover .contact_cta{
+  right: 0;
+  transition: all .3s ease-in-out;
+}
+.text-dispalyhover:hover .hover-dispaly{
+  left: 0;
+  position: relative;
+  z-index: initial;
+}
+.text-dispalyhover:hover .contact_cta {
+  right:200%;
+  position: absolute;
+  z-index: -1;
+
+}
+</style>
+<script>
+
+</script>

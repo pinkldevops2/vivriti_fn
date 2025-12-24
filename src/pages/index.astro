@@ -1,0 +1,105 @@
+---
+import Header from '../components/common/Header.astro';
+import ContactButton from '../components/common/HomeGetInTouch.jsx';
+import BannerIntro from '../components/home/BannerIntro.astro';
+import Banner from '../components/home/Banner.astro';
+import Footer from '../components/common/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import AssetManagement from '../components/home/AssetManagement.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import TestimonialsLeader from '../components/home/TestimonialsLeader.astro'
+import Insights from '../components/home/Insights.astro';
+import MilestonesMarket from '../components/home/MilestonesMarket.astro';
+import Transforming from '@/components/home/Transforming.astro';
+import DrivingImpact from '@/components/home/DrivingImpact.astro';
+import GlobalCapital from '@/components/home/GlobalCapital.astro';
+import TailoredCapital from '@/components/home/TailoredCapital.astro';
+import SwiperSlider from "../components/common/SwiperSlider";
+import DrivingImpactSwiper from "../components/common/DrivingImpactSwiper";
+import FooterMobile from "../components/common/FooterMobile.astro";
+import CapitalSlider from "../components/common/CapitalSlider";
+import ThinkTankSlider from "../components/common/ThinkTankSlider";
+import LogoShape from "../../public/Vivrithi_logo.svg";
+
+const slides = [
+  { img: "/images/slide1.jpg", title: "Accessing growth capital is just one hurdle for India’s mid-market enterprises.",cname:"John Doe",designation:"CTO, Ailitic",location:"Bangalore, India" },
+  { img: "/images/slide1.jpg", title: "Accessing growth capital is just one hurdle for India’s mid-market enterprises.",cname:"John Doe",designation:"CTO, Ailitic",location:"Bangalore, India" },
+  { img: "/images/slide1.jpg", title: "Accessing growth capital is just one hurdle for India’s mid-market enterprises.",cname:"John Doe",designation:"CTO, Ailitic",location:"Bangalore, India" },
+  { img: "/images/slide1.jpg", title: "Accessing growth capital is just one hurdle for India’s mid-market enterprises.",cname:"John Doe",designation:"CTO, Ailitic",location:"Bangalore, India" },
+  { img: "/images/slide1.jpg", title: "Accessing growth capital is just one hurdle for India’s mid-market enterprises.",cname:"John Doe",designation:"CTO, Ailitic",location:"Bangalore, India" },
+  { img: "/images/slide1.jpg", title: "Accessing growth capital is just one hurdle for India’s mid-market enterprises.",cname:"John Doe",designation:"CTO, Ailitic",location:"Bangalore, India" }
+];
+
+const slides1 = [
+  { id: "01", title: "Invest", desc: "Deploy surplus capital efficiently in fixed-income vehicles for predictable, stable returns." },
+  { id: "02", title: "Borrow", desc: "Access the right funding at the right time, with tailored structures to scale your business seamlessly." },
+  { id: "03", title: "Strategise", desc: "Get expert guidance across transactions, risk management, ESG readiness, and market opportunities — turning strategy into action." },
+  { id: "04", title: "Tech", desc: "Leverage AI-driven platforms for a wide range of financing needs, including lending, co-lending, and asset management." },
+];
+
+const slides2 = [
+  { id: "01", title: "Specialised mid-market focus", desc: "Deep understanding of the business needs, operating dynamics, and challenges faced by India’s mid-market enterprises." },
+  { id: "02", title: "Comprehensive solutions beyond credit", desc: "End-to-end solutions for complex business needs, spanning financial advisory, rating advisory, ESG advisory, fundraising, and insurance." },
+  { id: "03", title: "Tech-driven platforms", desc: "Proprietary solutions like VivFlo, CredIQ, Artemis, Zeus, and Investron enable faster turnaround time, seamless execution, and richer outcome." },
+  { id: "04", title: "Integrated capital ecosystem", desc: "Direct access to Vivriti Capital’s lending capabilities and Vivriti Asset Management’s investment platforms." },
+  { id: "05", title: "Disciplined risk and compliance", desc: "Robust governance, credit discipline, and a focus on sustainability ensure consistently high-quality outcomes." },
+  { id: "06", title: "Investor network depth", desc: "Access to 1,200+ domestic and global investors, from HNIs and UHNIs to institutions and family offices." },
+];
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+<Layout>
+	<Header />
+	<BannerIntro />
+	<ContactButton label={"Begin Your Journey With Us"} href={"/contact-us#leadgen"} />
+	<Banner />
+	<Transforming />
+
+	<section class="py-6 sm:hidden block">
+		<div data-reveal class="fade-up ">
+			<DrivingImpactSwiper slides={slides1} client:only="react" />			
+		</div>
+	</section> 
+
+	<DrivingImpact />
+	<!-- <TailoredCapital />
+	<GlobalCapital />	 -->
+	<AssetManagement />
+
+<section class="sm:hidden block">
+		<div data-reveal class="fade-up ">
+			<CapitalSlider slides={slides2} client:only="react" />			
+		</div>
+	</section> 
+
+
+	 <!-- <section class="py-12">
+		
+		<div data-reveal class="fade-up testimonials">
+			<SwiperSlider slides={slides} client:only="react" />
+		</div>
+	</section>  -->
+	<Insights />
+	<section class="sm:hidden block">
+	<ThinkTankSlider slides={slides2} client:only="react"/>
+	<div class="px-3 pb-2 bg-[#3bbae212]">
+	<a
+          href="/contact"
+          class="contact_cta px-[30px] text-center py-[10px] text-[14px] flex items-center justify-center gap-2 text-white uppercase hover:text-blue-600 transition mb-2"
+          ><span data-text="View more"> View more</span>
+          <img src={LogoShape.src} class="w-5 h-5" />
+        </a>
+	</div>
+</section>
+	<!--  <Testimonials />  -->
+	<TestimonialsLeader/>
+	<MilestonesMarket/>
+
+	
+
+
+
+	<Footer/>
+	<FooterMobile/>
+</Layout>

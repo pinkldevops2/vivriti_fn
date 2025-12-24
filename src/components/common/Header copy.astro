@@ -1,0 +1,151 @@
+---
+import { useState } from "react";
+import vivrithiLogo from "../../../public/Vivrithi-NEXT.svg";
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+---
+
+<header id="mainHeader" class="bg-white sticky top-0 w-full z-50 transition-transform duration-500">
+  <div class="container mx-auto flex items-center justify-between py-4 px-4 pt-[30px]">
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <img src={vivrithiLogo.src} alt="Vivrithi Logo" class="min-w-[180px] w-auto" />
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="menu-btn"
+      class="lg:hidden flex flex-col justify-center items-center w-12 h-12 space-y-1.5"
+      aria-label="Toggle menu"
+      onclick="document.getElementById('mobileMenu').classList.toggle('hidden'); this.classList.toggle('active')"
+    >
+      <span class="w-6 h-[2px] bg-gray-700 bar"></span>
+      <span class="w-6 h-[2px] bg-gray-700 bar"></span>
+      <span class="w-6 h-[2px] bg-gray-700 bar"></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav id="headenvan" class="hidden lg:block relative">
+      <ul class="flex space-x-2 text-gray-700 font-medium text-sm tracking-[0.3px]">
+        <li><a href="/about" class="hover:text-blue-600 transition px-4 py-2">About Us</a></li>
+        <li><a href="/products" class="hover:text-blue-600 transition px-4 py-2">Borrow</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition px-4 py-2">Invest</a></li>
+        <li><a href="/advisory" class="hover:text-blue-600 transition px-4 py-2">Advisory</a></li>
+        <li><a href="/group" class="hover:text-blue-600 transition px-4 py-2">Tech</a></li>
+        
+        <li>
+         <a 
+  href="/contact" 
+  class="contact_cta flex items-center gap-2 text-white uppercase hover:text-blue-600 transition mb-2"
+><span data-text="Contact Us">
+  Contact Us</span>
+  <img src={LogoShape.src} alt="Vivrithi" class="w-5 h-5" />
+</a>
+        </li>
+      </ul>
+
+      <!-- Gradient underline -->
+      <div class="absolute bottom-0 left-0 h-[4px] w-full bg-gradient-to-r from-[#3BBAE2] via-[#F2728C] to-[#F58220]"></div>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div 
+    id="mobileMenu" 
+    class="hidden lg:hidden absolute top-full left-0 w-full bg-white border-t shadow-md"
+  >
+    <ul class="flex flex-col text-gray-700 font-medium text-base">
+      <li><a href="/about" class="hover:text-blue-600 transition px-4 py-2">About Us</a></li>
+        <li><a href="/products" class="hover:text-blue-600 transition px-4 py-2">Borrow</a></li>
+        <li><a href="/blog" class="hover:text-blue-600 transition px-4 py-2">Invest</a></li>
+        <li><a href="/advisory" class="hover:text-blue-600 transition px-4 py-2">Advisory</a></li>
+        <li><a href="/group" class="hover:text-blue-600 transition px-4 py-2">Tech</a></li>
+      <li class="border-t mt-2">
+          <a 
+  href="/contact" 
+  class="contact_cta flex items-center py-3 px-4 gap-2 text-white uppercase hover:text-blue-600 transition mb-2"
+>
+<span data-text="Contact Us">Contact Us</span>  
+  <img src={LogoShape.src} alt="Vivrithi" class="w-5 h-5" />
+</a>
+      </li>
+    </ul>
+  </div>
+</header>
+<style>
+    #headenvan{
+        position: relative;
+        min-height: 52px;
+    }
+    #headenvan::after{
+        content: '';
+        height: 4px;
+        width: 100%;
+        position:absolute;
+        bottom: 0;
+        background: #3BBAE2;
+        background: linear-gradient(32deg, rgba(59, 186, 226, 1) 0%, rgba(242, 114, 140, 1) 50%, rgba(245, 130, 32, 1) 100%);
+    }
+    #headenvan li{
+        margin: 0;
+        display: inline-block;
+    }
+    #headenvan li a{
+        padding: 10px 25px;
+        display: flex;
+        font-size: 14px;
+        transition:all ease-in 0.4s;
+    }
+    #headenvan li a:hover{
+      transform: scale(1.15);
+    }
+    #headenvan li a.contact_cta:hover{
+      transform: scale(1);
+    }
+    #headenvan li:first-child a{
+        padding-left:0px;
+    }
+    /* Hamburger active (X animation) */
+    #menu-btn.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px)!important;
+    }
+    #menu-btn.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+    #menu-btn.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px)!important;
+    }
+
+</style>
+<script>
+  let lastScroll = 0;
+  const header = document.getElementById("mainHeader");
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    
+    if (currentScroll <= 0) {
+      header.classList.remove("hide");
+      header.classList.add("show");
+      return;
+    }
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      
+      header.classList.remove("show");
+      header.classList.add("hide");
+    } else if (currentScroll < lastScroll) {
+      
+      header.classList.remove("hide");
+      header.classList.add("show");
+    }
+
+    lastScroll = currentScroll;
+  });
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const btn = document.getElementById("menu-btn");
+    menu.classList.toggle("hidden");
+    btn.classList.toggle("active");
+  }
+</script>

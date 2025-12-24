@@ -1,0 +1,123 @@
+---
+
+import ArtemisaboutDetails from "./colendingaboutDetails.astro";
+import ArtemisKeyFeature from "./colendingKeyFeature.astro";
+import ArtemisValueDelivered from "./colendingValueDelivered.astro"
+import ArtemisSlider from './colendingSlider.astro';
+
+---
+
+<div class="w-full mx-auto relative">
+  <!-- Tab Buttons -->
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div class="flex justify-start">
+      <div
+        class="flex space-x-2 w-full md:max-w-fit relative items-start z-2  mb-4 md:mb-0 min-h-[140px]"
+      >
+        <button
+          class="borrowvcl-btn px-8 border-1 border-dashed border-[#F58220] font-normal transition-colors duration-300 w-1/2 md:min-w-[350px] text-left"
+          data-tab="corporates"
+          aria-selected="true"
+        >
+        <h4 class="text-[28px] md:text-[35px] font-normal mb-3 font-heading">01.</h4>
+          <p class="text-[16px] md:text-[18px] font-normal uppercase">VIVFLO</p>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab Panels -->
+  <div class="relative mt-0">
+    <!-- First tab visible -->
+    <div
+      id="corporates"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-100 translate-y-0"
+    >
+      <section class="md:pt-6">
+       <ArtemisaboutDetails/>
+        <ArtemisSlider/>
+       <ArtemisKeyFeature/>
+       <ArtemisValueDelivered/>
+      </section>
+    </div>
+
+  </div>
+</div>
+<style>
+  button:not(.tabactive) {
+    color:#000;
+    transition: all 0.3s ease-in-out;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .tabactive {
+    color: #fff !important;
+  /*   border:0; */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: linear-gradient(
+      312deg,
+      rgba(59, 186, 226, 1) 0%,
+      rgba(0, 1, 138, 1) 100%
+    );
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+  .tabactive p{
+    font-weight: 700;
+  }
+  button:not(.tabactive):hover {
+    color: #fff !important;
+    background: linear-gradient(
+      312deg,
+      rgba(59, 186, 226, 1) 0%,
+      rgba(0, 1, 138, 1) 100%
+    );
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".borrowvcl-btn");
+    const panels = document.querySelectorAll(".borrowvcl-panel");
+
+    // Initialize first tab as active
+    buttons[0].classList.add("tabactive");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const target = btn.dataset.tab;
+
+        // Update active button
+        buttons.forEach((b) => {
+          const isActive = b === btn;
+          b.setAttribute("aria-selected", String(isActive));
+
+          // Tailwind toggles
+          /*  b.classList.toggle("border-blue-600", isActive);
+          b.classList.toggle("text-[#fff]", isActive);
+          b.classList.toggle("border-transparent", !isActive); */
+
+          // Add/remove tabactive
+          b.classList.toggle("tabactive", isActive);
+        });
+
+        // Smooth transition panels
+        panels.forEach((panel) => {
+          if (panel.id === target) {
+            panel.classList.remove("hidden");
+            requestAnimationFrame(() => {
+              panel.classList.add("opacity-100", "translate-y-0");
+              panel.classList.remove("opacity-0", "-translate-y-2");
+            });
+          } else {
+            panel.classList.add("opacity-0", "-translate-y-2");
+            panel.classList.remove("opacity-100", "translate-y-0");
+            setTimeout(() => panel.classList.add("hidden"), 400);
+          }
+        });
+      });
+    });
+  });
+</script>

@@ -1,0 +1,398 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+---
+<div class="map_background relative" id="leadgen">
+  <div class="container mx-auto h-full flex flex-col md:flex-row gap-4">
+    <!-- Left column (66%) -->
+    <div class="w-full md:w-1/2 p-4 py-15 flex flex-col justify-between">
+        <div class="top_box">
+      <h2 class="text-[35px] mt-3 leading-[40px] mb-6 font-heading gradient-text">What can we do for you</h2>
+      <p>Have a question, collaboration idea, or advisory request? 
+Our team is here to guide you with expert guidance and prompt responses.
+      </p>
+      </div>
+<div class="bottom_box hidden md:block">
+
+  <div class="tabs-wrapper">
+    <div class="nav-tabs mb-4">
+      <a href="#" class="tab" data-tab="borrow">Borrow</a>
+      <a href="#" class="tab" data-tab="invest">Invest</a>
+      <a href="#" class="tab active" data-tab="advisory">Advisory</a>
+      <a href="#" class="tab" data-tab="tech">Tech</a>
+    </div>
+
+    <div class="nav-tabs w-[200px]">
+      <a href="#" class="tab" data-tab="other">Other Queries</a>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+    <!-- Right column (33%) -->
+    <div class="w-full md:w-1/2 p-4 md:p-10 pb-18">
+      <p class="text-center">Solutions designed for you.<br/>
+        <b>Start by choosing your segment</b></p>
+      <form class="pt-5">
+
+        
+
+<div class="segment-dropdown md:hidden mb-5 mt-2">
+  <select id="segmentSelect" class="w-full border rounded px-3 py-2 text-sm font-semibold">
+    <option value="borrow">Borrow</option>
+    <option value="invest">Invest</option>
+    <option value="advisory" selected>Advisory</option>
+    <option value="tech">Tech</option>
+    <option value="other">Other Queries</option>
+  </select>
+</div>
+
+        <div class="dropdown mb-5" id="customDropdown">
+          <button type="button" class="dropdown-toggle" aria-expanded="false">
+            <span id="dropdownLabel">Please select a service</span>
+            <svg class="chevron" width="18" height="18" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <ul class="dropdown-menu">
+            <li>Capital Markets</li>
+            <li>Capital Structuring</li>
+            <li>Risk Management</li>
+            <li>Credit Ratings</li>
+            <li>ESG and Climate</li>
+          </ul>
+        </div>
+
+        <div class="form_element_1">
+          <input type="text" value="" placeholder="Name*" />
+          <small class="error-text"></small>
+        </div>
+        <div class="form_element_1">
+          <input type="text" value="" placeholder="Phone" />
+        </div>
+        <div class="form_element_1">
+          <input type="text" value="" placeholder="Email*" />
+          <small class="error-text"></small>
+        </div>
+        <div class="form_element_1">
+          <input type="text" value="" placeholder="Organization" />
+        </div>
+        <div class="form_element_1">
+          <input type="text" value="" placeholder="Message*" />
+          <small class="error-text"></small>
+        </div>
+        <button class="contact_cta flex justify-center items-center gap-2 text-white uppercase py-2 w-full text-[14px]">
+          <span data-text="Contact Us">Contact Us</span>
+          <img src={LogoShape.src} class="w-5 h-5" />
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .map_background {
+    background-size: cover;
+    background-position: center;
+    background-color: #F5FCFE;
+  }
+
+  .map_background input {
+    height: 40px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+    width: 100%;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+  }
+
+  .error-text {
+    display: block;
+    font-size: 12px;
+    color: #dc2626;
+    margin-top: -15px;
+    margin-bottom: 12px;
+  }
+
+  .input-error {
+    border-color: #dc2626 !important;
+  }
+
+  /* Full width container */
+    .tabs-wrapper {
+      width: 100%;
+    }
+
+    /* Tabs row */
+    .nav-tabs {
+      display: flex;
+      border: 1px dashed #ff6b00;
+      padding: 5px;
+    }
+
+    /* Individual tab */
+    .tab {
+      flex: 1; /* Equal width tabs */
+      padding: 10px 10px;
+      text-align: center;
+      text-decoration: none;
+      color: #0b4edb;
+      font-weight: 600;
+      background: #ffffff;
+      border-right: 1px solid #e6e6e6;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .tab:last-child {
+      border-right: none;
+    }
+
+    /* Hover & Active */
+    .tab:hover,
+    .tab.active {
+          background: #3BBAE2;
+    background: linear-gradient(32deg, rgba(59, 186, 226, 1) 0%, rgba(0, 1, 138, 1) 100%);
+      color: #ffffff;
+    }
+
+    /* Mobile handling */
+    @media (max-width: 768px) {
+      .nav-tabs {
+        overflow-x: auto;
+      }
+      .tab {
+        min-width: 140px;
+        flex: none;
+      }
+    }
+</style>
+
+<script>
+  const dropdown = document.getElementById('customDropdown');
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  const label = document.getElementById('dropdownLabel');
+  const items = dropdown.querySelectorAll('.dropdown-menu li');
+
+  toggle.addEventListener('click', () => {
+    dropdown.classList.toggle('open');
+    toggle.setAttribute(
+      'aria-expanded',
+      dropdown.classList.contains('open')
+    );
+  });
+
+  // Select option & close dropdown
+  dropdown.querySelector('.dropdown-menu').addEventListener('click', (e) => {
+  const item = e.target.closest('li');
+  if (!item) return;
+
+  label.textContent = item.textContent;
+  dropdown.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+});
+
+
+  // Click outside to close dropdown
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  const tabOptions = {
+    borrow: [
+      "Corporates",
+      "Financial Institutions"
+    ],
+    invest: [
+      "An Individual",
+      "A Corporate Treasury",
+      "A Family Office",
+      "A Global Citizen"
+    ],
+    advisory: [
+      "Capital Raise",
+      "Capital Markets",
+      "Capital Structuring",
+      "Risk Management",
+      "Credit Ratings",
+      "ESG and Climate"
+    ],
+    tech: [
+      "Mid Corporate Lending",
+      "Supply Chain Finance",
+      "Co-Lending",
+      "Asset Management",
+      "Common Capabilities"
+    ],
+    other: [
+      "General Enquiry"
+    ]
+  };
+
+  const tabs = document.querySelectorAll(".tab");
+  const dropdownMenu = document.querySelector(".dropdown-menu");
+  const dropdownLabel = document.getElementById("dropdownLabel");
+
+  function updateDropdown(options) {
+    dropdownMenu.innerHTML = options
+      .map(option => `<li>${option}</li>`)
+      .join("");
+
+    // Set default label
+    if (options.length) {
+      dropdownLabel.textContent = options[0];
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      // Active tab styling
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const selectedTab = tab.dataset.tab;
+      const options = tabOptions[selectedTab] || [];
+
+      updateDropdown(options);
+    });
+  });
+
+  
+  const form = document.querySelector("form");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function showError(input, message) {
+    input.classList.add("input-error");
+    input.nextElementSibling.textContent = message;
+  }
+
+  function clearError(input) {
+    input.classList.remove("input-error");
+    input.nextElementSibling.textContent = "";
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    const nameInput = form.querySelector('input[placeholder="Name*"]');
+    const emailInput = form.querySelector('input[placeholder="Email*"]');
+    const messageInput = form.querySelector('input[placeholder="Message*"]');
+
+    // Dropdown validation
+    if (!dropdownLabel.textContent || dropdownLabel.textContent === "Capital Raise") {
+      alert("Please select a service from the dropdown.");
+      return;
+    }
+
+    // Name
+    if (!nameInput.value.trim()) {
+      showError(nameInput, "Name is required");
+      isValid = false;
+    } else {
+      clearError(nameInput);
+    }
+
+    // Email
+    if (!emailInput.value.trim()) {
+      showError(emailInput, "Email is required");
+      isValid = false;
+    } else if (!emailRegex.test(emailInput.value.trim())) {
+      showError(emailInput, "Enter a valid email");
+      isValid = false;
+    } else {
+      clearError(emailInput);
+    }
+
+    // Message
+    if (!messageInput.value.trim()) {
+      showError(messageInput, "Message is required");
+      isValid = false;
+    } else {
+      clearError(messageInput);
+    }
+
+    if (!isValid) return;
+
+    // ✅ SUCCESS
+    alert("Your message received successfully!");
+
+    form.reset();
+    dropdownLabel.textContent = "Capital Raise";
+  });
+
+  // Clear error on typing
+  form.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", () => {
+      if (input.nextElementSibling?.classList.contains("error-text")) {
+        clearError(input);
+      }
+    });
+  });
+
+
+  function activateSegment(key) {
+    const options = tabOptions[key] || [];
+
+    // Update dropdown list
+    dropdownMenu.innerHTML = options
+      .map(opt => `<li>${opt}</li>`)
+      .join("");
+
+    // Update label
+    if (options.length) {
+      dropdownLabel.textContent = options[0];
+    }
+
+    // Update active tab (desktop)
+    tabs.forEach(tab => {
+      tab.classList.toggle("active", tab.dataset.tab === key);
+    });
+  }
+
+
+  /* ---------- MOBILE DROPDOWN ---------- */
+  const segmentSelect = document.getElementById("segmentSelect");
+  if (segmentSelect) {
+    segmentSelect.addEventListener("change", (e) => {
+      activateSegment(e.target.value);
+    });
+  }
+
+  /* ---------- INIT ---------- */
+ /* ---------- URL PARAM HANDLING ---------- */
+function getQueryParam(param) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(param);
+}
+
+/* ---------- INIT WITH URL ---------- */
+const segmentFromUrl = getQueryParam("segment");
+
+// Validate segment key
+if (segmentFromUrl && tabOptions[segmentFromUrl]) {
+  activateSegment(segmentFromUrl);
+
+  // Sync mobile dropdown
+  if (segmentSelect) {
+    segmentSelect.value = segmentFromUrl;
+  }
+} else {
+  // Default fallback
+  activateSegment("");
+}
+</script>

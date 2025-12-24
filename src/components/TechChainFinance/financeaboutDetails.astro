@@ -1,0 +1,52 @@
+---
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+import LogoShape1 from "../../../public/logowhite.svg";
+import LaptopFrameSlider from "@/components/common/LaptopFrameSlider";
+const slides = [
+  "/slides/trition/screen1.png",
+  "/slides/trition/screen2.png",
+  "/slides/trition/screen3.png",
+  "/slides/trition/screen4.png",
+];
+--- 
+ <div class="w-full">
+    <div class="relative overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <div
+      class="flex flex-col md:flex-row justify-between items-end md:gap-10 mb-4 md:mb-20"
+    >
+      <div class="w-full md:w-8/12">
+        <h4 class="uppercase text-[14px] text-[#F58220] mb-4"> TRITON</h4>
+         <h2
+        class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
+      >
+       Streamlining supply chain finance <br/>end-to-end
+      </h2>
+       <p data-reveal class="fade-up font-normal w-full mb-4">
+        Built for speed, compliance, and scale, Triton is an API-first Supply Chain Finance Loan Origination System (SCF LOS) that streamlines onboarding, underwriting, and loan approvals for supply chain partners. The platform supports anchor-led programs, counterparty-driven finance, and flexible buyer or seller workflows, delivering operational efficiency, transparency, and compliance.
+      </p>
+
+      <p>
+        Triton provides a robust backend engine for underwriting, credit evaluation, and loan approval. It integrates seamlessly with LMS systems and future-ready modules such as co-lending and refinancing. Triton ensures smart credit decisions, reduces manual intervention, and provides end-to-end visibility and control over SCF operations.
+      </p>
+      
+      </div>
+      <div class="w-full hidden md:block md:w-4/12">
+        <div class="w-full md:flex justify-end hidden">
+          <LaptopFrameSlider
+          laptopImage="laptop_background.png"
+          slides={slides}
+          sliderId="homepage-laptop2"
+          client:only="react"
+      />
+        </div> 
+    </div>
+    </div>
+   
+  </div>
+   <!-- <div class="w-full md:flex justify-end hidden absolute xl:-top-[10px] -right-10 z-0">
+          <img src={LogoShape1.src} class="xl:min-w-[400px] lg:min-w-[350px] h-auto" />
+        </div> -->
+  </div>
+ </div>
+ 

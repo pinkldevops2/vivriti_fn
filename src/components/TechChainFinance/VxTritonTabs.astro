@@ -1,0 +1,112 @@
+---
+---
+<style>
+  .vx-triton-tabs-wrap {
+    max-width: 900px;
+    font-family: system-ui, sans-serif;
+  }
+
+  .vx-triton-tabs-nav {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .vx-triton-tabs-btn {
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    background: #f3f3f3;
+    color: #555;
+  }
+
+  .vx-triton-tabs-btn.is-active {
+    background: linear-gradient(90deg, #1d4ed8, #38bdf8);
+    color: #fff;
+  }
+
+  .vx-triton-tabs-panel {
+    display: none;
+    color: #333;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  .vx-triton-tabs-panel.is-active {
+    display: block;
+  }
+</style>
+
+<div class="vx-triton-tabs-wrap">
+  <!-- Tabs -->
+  <div class="vx-triton-tabs-nav">
+    <button
+      class="vx-triton-tabs-btn"
+      data-vx-triton-tab="portal"
+    >
+      PORTAL
+    </button>
+
+    <button
+      class="vx-triton-tabs-btn is-active"
+      data-vx-triton-tab="triton"
+    >
+      TRITON
+    </button>
+  </div>
+
+  <!-- Content -->
+  <div
+    id="vx-triton-panel-portal"
+    class="vx-triton-tabs-panel"
+  >
+    <p>
+      Portal acts as the front-facing interface enabling users to manage
+      onboarding, documentation, and workflow tracking efficiently.
+    </p>
+  </div>
+
+  <div
+    id="vx-triton-panel-triton"
+    class="vx-triton-tabs-panel is-active"
+  >
+    <p>
+      Triton provides a robust backend engine for underwriting, credit
+      evaluation, and loan approval. It integrates seamlessly with LMS
+      systems and future-ready modules such as co-lending and refinancing.
+      Triton ensures smart credit decisions, reduces manual intervention,
+      and provides end-to-end visibility and control over SCF operations.
+    </p>
+  </div>
+</div>
+
+<script>
+  const vxTritonTabButtons = document.querySelectorAll(
+    ".vx-triton-tabs-btn"
+  );
+
+  const vxTritonTabPanels = document.querySelectorAll(
+    ".vx-triton-tabs-panel"
+  );
+
+  vxTritonTabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const tabKey = btn.dataset.vxTritonTab;
+
+      vxTritonTabButtons.forEach(b =>
+        b.classList.remove("is-active")
+      );
+      vxTritonTabPanels.forEach(p =>
+        p.classList.remove("is-active")
+      );
+
+      btn.classList.add("is-active");
+      document
+        .getElementById(`vx-triton-panel-${tabKey}`)
+        .classList.add("is-active");
+    });
+  });
+</script>

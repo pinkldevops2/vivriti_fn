@@ -1,0 +1,138 @@
+---
+import Techtabsslider from "@/components/common/TechTabsSwiper";
+import CommEngineabout from "./commEngineaboutDetails.astro";
+import CommEngineKeyFeature from "./commEngineKeyFeature.astro";
+import CommEngineValue from "./commEngineValueDelivered.astro";
+import CommEngineSlider from './commEngineSlider.astro';
+import DocManabout from "./DocManaboutDetails.astro";
+import DocManKeyFeature from "./DocManKeyFeature.astro";
+import DocManValue from "./DocManValueDelivered.astro";
+import DocManSlider from './DocManSlider.astro';
+import Zeusabout from "./ZeusaboutDetails.astro";
+import ZeusKeyFeature from "./ZeusKeyFeature.astro";
+import ZeusValue from "./ZeusValueDelivered.astro";
+import ZeusSlider from './ZeusSlider.astro';
+
+const slides1 = [
+  {
+    id: "corporates",
+    num: "01",
+    title: "Communication Engine",
+  },
+  {
+    id: "financial",
+    num: "02",
+    title: "Document Management System (VDrive)",
+  },
+ {
+    id: "zeus",
+    num: "03",
+    title: "ZEUS",
+  }
+];
+
+---
+
+<div class="w-full mx-auto relative">
+  <!-- Tab Buttons -->
+  <div class="container mx-auto px-4 lg:px-8 xl:px-4">
+    <section class="pt-5 pb-10 md:pb-15">
+          <div>
+            <Techtabsslider slides={slides1} client:only="react" />
+          </div>
+        </section>
+  </div>
+
+  <!-- Tab Panels -->
+  <div class="relative mt-0">
+    <!-- First tab visible -->
+    <div
+      id="corporates"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-100 translate-y-0"
+    >
+      <section class="md:pt-6">
+       <CommEngineabout/>
+        <CommEngineSlider/>
+        <CommEngineKeyFeature/>
+        <CommEngineValue/>
+      </section>
+    </div>
+
+    <!-- Second tab hidden by default -->
+    <div
+      id="financial"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
+    >
+      <section class="pb-0 md:pt-6">
+        <DocManabout/>
+        <DocManSlider/>
+        <DocManKeyFeature/>
+        <DocManValue/>
+      </section>
+    </div>
+    <div
+      id="zeus"
+      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
+    >
+      <section class="pb-0 md:pt-6">
+        <Zeusabout/>
+        <ZeusSlider/>
+        <ZeusKeyFeature/>
+        <ZeusValue/>
+      </section>
+    </div>
+  </div>
+</div>
+<style>
+button.techtabs-btn:not(.tabactive) {
+    color: #000;
+    transition: all 0.3s ease-in-out;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    min-height: 117px;
+}
+  .tabactive {
+    color: #fff !important;
+  /*   border:0; */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 160px;
+    background: linear-gradient(
+      312deg,
+      rgba(59, 186, 226, 1) 0%,
+      rgba(0, 1, 138, 1) 100%
+    );
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+  .tabactive p{
+    font-weight: 700;
+  }
+  button:not(.tabactive):hover {
+    color: #fff !important;
+    background: linear-gradient(
+      312deg,
+      rgba(59, 186, 226, 1) 0%,
+      rgba(0, 1, 138, 1) 100%
+    );
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+</style><script lang="ts">
+  window.addEventListener("tab-change", (event) => {
+    const id = event.detail.id;
+
+    const panels = document.querySelectorAll(".borrowvcl-panel");
+
+    panels.forEach((panel) => {
+      if (panel.id === id) {
+        panel.classList.remove("hidden", "opacity-0", "-translate-y-2");
+        panel.classList.add("opacity-100", "translate-y-0");
+      } else {
+        panel.classList.add("opacity-0", "-translate-y-2");
+        panel.classList.remove("opacity-100", "translate-y-0");
+        setTimeout(() => panel.classList.add("hidden"), 300);
+      }
+    });
+  });
+</script>

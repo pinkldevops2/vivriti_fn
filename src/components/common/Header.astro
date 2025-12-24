@@ -1,0 +1,267 @@
+---
+import vivrithiLogo from "../../../public/Vivrithi-NEXT.svg";
+import LogoShape from "../../../public/Vivrithi_logo.svg";
+---
+
+<header id="mainHeader" class="bg-white sticky top-0 w-full z-50 transition-transform duration-500">
+  <div class="container mx-auto flex items-center justify-center lg:justify-between py-4 px-4 xl:px-4 lg:px-8  sm:pt-[30px] border-bottom-gradient">
+
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+        <a href="/">
+        <img src={vivrithiLogo.src} alt="Vivrithi Logo" class="max-w-[180px] sm:max-w-[initial] sm:min-w-[180px] w-auto" />
+        </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="menu-btn"
+      class="lg:hidden absolute right-4 flex flex-col justify-center items-end w-8 h-12 space-y-1.5"
+      aria-label="Toggle menu"
+    >
+      <span class="w-6 h-[2px] bg-linear-to-r from-[#3bbae2] to-[#00018a] bar transition-all"></span>
+      <span class="w-3 h-[2px] bg-linear-to-r from-[#3bbae2] to-[#00018a] bar transition-all"></span>
+      <span class="w-6 h-[2px] bg-linear-to-r from-[#3bbae2] to-[#00018a] transition-all"></span>
+    </button>
+
+    <!-- Desktop Nav -->
+    <nav id="headenvan" class="hidden lg:block relative">
+      <ul class="flex space-x-2 text-gray-700 font-medium text-sm tracking-[0.3px]">
+        <li><a href="/about" class="hover:text-blue-600 transition px-4 py-2">About Us</a></li>
+        <li class="relative group">
+  <a href="#" class="flex items-center gap-1">
+    Borrow
+    <svg class="w-3 h-3 mt-[2px]" viewBox="0 0 10 6">
+      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    </svg>
+  </a>
+
+  <ul class="absolute left-0 top-full mt-2 w-55 bg-white shadow-lg rounded-md
+             opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+    <li><a href="/borrowvcl" class="dropdown-link">Vivriti Capital</a></li>
+    <li><a href="/borrowvam" class="dropdown-link">Vivriti AMC</a></li>
+  </ul>
+</li>
+        <li><a href="/invest" class="hover:text-blue-600 transition px-4 py-2">Invest</a></li>
+        <li><a href="/advisory" class="hover:text-blue-600 transition px-4 py-2">Advisory</a></li>
+        
+        <li class="relative group">
+  <a href="#" class="flex items-center gap-1">
+    Tech
+    <svg class="w-3 h-3 mt-[2px]" viewBox="0 0 10 6">
+      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    </svg>
+  </a>
+
+  <ul class="absolute left-0 top-full mt-2 w-55 bg-white shadow-lg rounded-md
+             opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+    <li><a href="/tech" class="dropdown-link">Mid Corporate Lending</a></li>
+    <li><a href="/techchainfinance" class="dropdown-link">Supply Chain Finance</a></li>
+    <li><a href="/techcolending" class="dropdown-link">Co-lending</a></li>
+    <li><a href="/techmanagement" class="dropdown-link">Asset Management</a></li>
+    <li><a href="/techcommon-capabilities" class="dropdown-link">Common Capabilities</a></li>    
+  </ul>
+</li>
+        
+        <li>
+          <a href="/contact-us" class="contact_cta flex items-center gap-2 text-white uppercase pw-2 mb-2">
+            <span data-text="Contact Us">Contact Us</span>
+            <img src={LogoShape.src} class="w-5 h-5" />
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+
+  <!-- MOBILE SLIDING MENU -->
+  <div 
+    id="mobileMenu" 
+    class="fixed top-0 left-0 h-full w-64 bg-white shadow-xl transform -translate-x-full transition-transform duration-300 lg:hidden z-50"
+  >
+  <div class="px-4 pt-5">
+  <img src={vivrithiLogo.src} alt="Vivrithi Logo" class="max-w-[180px] w-auto" />
+
+  </div>
+    <ul class="flex flex-col text-gray-700 font-medium text-base mt-5 px-4">
+      <li><a href="/about" class="hover:text-blue-600 transition block py-2">About Us</a></li>
+      <li>
+  <button 
+    class="flex w-full items-center justify-between py-2 hover:text-blue-600 transition"
+    onclick="toggleBorrow()"
+    aria-expanded="false"
+    id="borrowBtn"
+  >
+    <span>Borrow</span>
+    <svg class="w-4 h-4 transition-transform" id="borrowIcon" viewBox="0 0 10 6">
+      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    </svg>
+  </button>
+
+  <ul 
+    id="borrowSubmenu"
+    class="ml-4 mt-1 space-y-1 hidden text-sm"
+  >
+    <li><a href="/borrowvcl" class="block py-1 hover:text-blue-600">Vivriti Capital</a></li>
+    <li><a href="/borrowvam" class="block py-1 hover:text-blue-600">Vivriti AMC</a></li>
+  </ul>
+</li>
+
+      <li><a href="/invest" class="hover:text-blue-600 transition block py-2">Invest</a></li>
+      <li><a href="/advisory" class="hover:text-blue-600 transition block py-2">Advisory</a></li>
+      <li>
+  <button 
+    class="flex w-full items-center justify-between py-2 hover:text-blue-600 transition"
+    onclick="toggleTech()"
+    aria-expanded="false"
+    id="techBtn"
+  >
+    <span>Tech</span>
+    <svg class="w-4 h-4 transition-transform" id="borrowTech" viewBox="0 0 10 6">
+      <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    </svg>
+  </button>
+
+  <ul 
+    id="techSubmenu"
+    class="ml-4 mt-1 space-y-1 hidden text-sm"
+  >
+    <li><a href="/tech" class="block py-1 hover:text-blue-600">Mid Corporate Lending</a></li>
+    <li><a href="/techchainfinance" class="block py-1 hover:text-blue-600">Supply Chain Finance</a></li>
+    <li><a href="/techcolending" class="block py-1 hover:text-blue-600">Co-lending</a></li>
+    <li><a href="/techmanagement" class="block py-1 hover:text-blue-600">Asset Management</a></li>
+    <li><a href="/techcommon-capabilities" class="block py-1 hover:text-blue-600">Common Capabilities</a></li>    
+  </ul>
+</li>
+
+      <li class="border-t mt-3 pt-3">
+        <a href="/contact-us" class="contact_cta flex justify-center items-center gap-2 text-white uppercase py-2">
+          <span data-text="Contact Us">Contact Us</span>
+          <img src={LogoShape.src} class="w-5 h-5" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Overlay – click outside to close -->
+  <div 
+    id="menuOverlay" 
+    class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden lg:hidden z-40"
+  ></div>
+
+</header>
+
+<!-- STYLES -->
+<style>
+  #headenvan {
+    position: relative;
+    min-height: 52px;
+  }
+  #headenvan::after {
+    content: "";
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(32deg, rgba(59,186,226,1) 0%, rgba(242,114,140,1) 50%, rgba(245,130,32,1) 100%);
+  }
+  #headenvan li a {
+    padding: 10px 25px;
+    display: flex;
+    font-size: 14px;
+    transition: all 0.4s ease-in;
+  }
+ /*  #headenvan li a:hover {
+    transform: scale(1.15);
+  } */
+  #headenvan li a.contact_cta:hover {
+    transform: scale(1);
+  }
+  #headenvan>ul>li:first-child a {
+    padding-left: 0;
+  }
+
+  /* Hamburger animation */
+  #menu-btn.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  #menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-btn.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media only screen and (max-width: 1023px) {
+  .border-bottom-gradient {
+  border-bottom: 4px solid; /* Thickness of border */
+  border-image: linear-gradient(90deg,rgba(0, 116, 188, 1) 0%, rgba(68, 200, 245, 0.97) 29%, rgba(245, 130, 32, 1) 59%, rgba(242, 114, 140, 1) 86%) 1;
+}
+}
+  #borrowSubmenu, #techSubmenu {
+  transition: all 0.3s ease;
+}
+
+</style>
+
+<!-- SCRIPT (Astro Client) -->
+<script is:client>
+  const menu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("menuOverlay");
+  const btn = document.getElementById("menu-btn");
+
+  function openMenu() {
+    menu.classList.remove("-translate-x-full");
+    menu.classList.add("translate-x-0");
+    overlay.classList.remove("hidden");
+    btn.classList.add("active");
+  }
+
+  function closeMenu() {
+    menu.classList.add("-translate-x-full");
+    menu.classList.remove("translate-x-0");
+    overlay.classList.add("hidden");
+    btn.classList.remove("active");
+  }
+
+  function toggleMenu() {
+    const isOpen = menu.classList.contains("translate-x-0");
+    isOpen ? closeMenu() : openMenu();
+  }
+
+  // Toggle on burger click
+  btn.addEventListener("click", toggleMenu);
+
+  // Close when clicking overlay
+  overlay.addEventListener("click", closeMenu);
+
+  // Close when clicking any link
+  menu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  window.toggleBorrow = function () {
+  const submenu = document.getElementById("borrowSubmenu");
+  const icon = document.getElementById("borrowIcon");
+  const btn = document.getElementById("borrowBtn");
+
+  const isOpen = !submenu.classList.contains("hidden");
+
+  submenu.classList.toggle("hidden");
+  icon.classList.toggle("rotate-180");
+  btn.setAttribute("aria-expanded", String(!isOpen));
+};
+
+window.toggleTech = function () {
+  const submenu = document.getElementById("techSubmenu");
+  const icon = document.getElementById("techIcon");
+  const btn = document.getElementById("techBtn");
+
+  const isOpen = !submenu.classList.contains("hidden");
+
+  submenu.classList.toggle("hidden");
+  icon.classList.toggle("rotate-180");
+  btn.setAttribute("aria-expanded", String(!isOpen));
+};
+
+</script>

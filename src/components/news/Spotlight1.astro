@@ -1,0 +1,251 @@
+---
+import Filter from "../../../public/filter.svg";
+---
+
+<div class="w-full xl:px-0 md:px-[40px] md:pt-[70px] pt-[40px] px-[20px]">
+  <div class="container mx-auto md:px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center md:gap-30 mb-5 sm:mb-15">
+      <!-- <div class="w-full md:w-4/12">
+        <h2 class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] gradient-text">
+          In the spotlight
+        </h2>
+      </div> -->
+
+      <!-- <div class="w-full md:w-8/12 hidden md:block">
+        <div class="flex justify-start sm:justify-end">
+          <a class=" contact_cta contact_cta5 flex items-center gap-2 text-white uppercase hover:text-blue-600 transition my-4 w-fit px-4 py-3">
+            <span class="uppercase text-[14px] filter">Filters</span>
+            <img src={Filter.src} alt="Vivrithi" class="w-5 h-5" />
+          </a>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between gap-[30px]">
+      <!-- LEFT SIDEBAR -->
+      <div class="w-full md:w-4/12">
+        
+        <!-- Search -->
+        <div class="relative w-full mb-8">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search..."
+            class="bg-[#F8F7F3] w-full px-4 py-4 border border-gray-300"
+          />
+          <div class="absolute inset-y-0 right-2 top-0 flex items-center pointer-events-none">
+            <!-- icon -->
+          </div>
+        </div>
+
+        <!-- Categories + Top News untouched -->
+        
+        <div class="categories-card bg-[#F8F7F3] py-5 md:py-8 mb-8">
+  <div id="categoriesHeading" class="flex justify-between items-center px-4 categories-heading cursor-pointer">
+    <h6 class="text-[#666666]">Categories</h6>
+    <div class="flex items-center gap-5">
+      <a href="#" class="font-bold text-black text-[14px] underline">View More</a>
+      <span id="catAngle" class="transition-transform sm:hidden block p-2 duration-300 rotate-90">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+          <path d="M9.625 1L1.625 7.5L9.625 13.5" stroke="black" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </div>
+  </div>
+
+  <!-- Dynamic Categories List -->
+ <div id="categoriesList" class="categories-list overflow-hidden transition-all duration-300 mt-10">
+ 
+  <ul id="categoriesUl" class="flex flex-col gap-2 px-4">
+    <!-- JS will populate categories here -->
+  </ul>
+</div>
+
+</div>
+
+<div class="categories-card bg-[#F8F7F3] py-5 md:py-8 sm:mb-8 mb:0">
+  <div id="topNewsHeading" class="flex justify-between items-center px-4 topnews cursor-pointer">
+    <h6>Top News</h6>
+    <span id="newsArrow" class="transition-transform sm:hidden block p-2 duration-300 rotate-90">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
+        <path d="M9.625 1L1.625 7.5L9.625 13.5" stroke="black" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </span>
+  </div>
+  <div id="topNewsList" class="categories-list overflow-hidden transition-all duration-300 px-4"></div>
+</div>
+      </div>
+
+      <!-- FILTER BUTTON FOR MOBILE -->
+      <div class="w-full md:w-8/12 block md:hidden">
+        <div class="flex justify-start sm:justify-end">
+          <a class="contact_cta contact_cta5 flex items-center gap-2 text-white uppercase hover:text-blue-600 transition w-fit px-4 py-3">
+            <span class="uppercase text-[14px] filter">Filters</span>
+          <img src={Filter.src} alt="Vivrithi" class="w-5 h-5" /> 
+          </a>
+        </div>
+      </div>
+
+      <!-- NEWS LIST -->
+      <div class="w-full md:w-8/12">
+   <div id="news-container" class="block sm:grid sm:grid-cols-2 md:gap-6 blog-container">
+  <p class="text-gray-500">Loading news...</p>
+</div>
+
+        <!-- Pagination -->
+        <!-- <div class="flex justify-center gap-4 mt-6">
+          <button id="prevBtn" class="px-4 py-2 bg-gray-200 rounded">Previous</button>
+          <button id="nextBtn" class="px-4 py-2 bg-gray-200 rounded">Next</button>
+        </div> -->
+      </div>
+      
+    </div>
+  </div>
+</div>
+<style is:inline>
+  .categories-list ul li a {
+    padding: 15px 10px;
+    position: relative;
+    top: 10px;
+    display: block;
+    background: #f8f7f3;
+    transition: all 0.2s ease-in;
+  }
+
+  .categories-list ul li a:hover {
+    background: #3bbae2;
+    background: linear-gradient(
+      212deg,
+      rgba(59, 186, 226, 1) 0%,
+      rgba(0, 1, 138, 1) 100%
+    );
+    color: #fff;
+    width: 100%;
+  }
+  .categories-list ul li {
+   /* margin: 20px 0;*/
+    border-top: 1px dashed #666666;
+  }
+  .blog-container .blog-card {
+    padding-bottom: 0px;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #f58220;
+  }
+  .blog-container .blog-card:nth-child(odd) {
+    padding-right: 0px;
+  }
+  .blog-container .blog-card:nth-child(even) {
+    padding-left: 15px;
+  }
+  .blog-container .blog-card:nth-last-child(1),
+  .blog-container .blog-card:nth-last-child(2) {
+    border-bottom: initial;
+  }
+  .border-gradent{
+    padding: 5px 12px;
+    border-width: 2px;
+    border-color: transparent;
+  }
+  .border-gradent:hover{
+    border-image: linear-gradient(to right, #00018A 10%, #3BBAE2 100%) 1;
+  border-radius: 0px;
+  border-width: 2px;
+  border-style: solid;
+  }
+  .border-gradent-active{
+    border-image: linear-gradient(to right, #00018A 10%, #3BBAE2 100%) 1;
+  border-radius: 0px;
+  border-width: 2px;
+  border-style: solid;
+  padding: 5px 12px;
+  }
+  .filter{
+    color:#fff!important;
+  }
+  #topNewsList{
+    margin-top: 30px;
+  }
+  @media (max-width: 639px) {
+    .blog-container .blog-card:nth-last-child(2) {
+      border-bottom: 1px dashed #f58220;
+    }
+    .blog-container .blog-card:nth-child(odd) {
+      padding-right: 0px;
+    }
+    .blog-container .blog-card:nth-child(even) {
+      padding-left: 0px;
+    }
+
+
+    #categoriesList {
+    display: none;
+  }
+
+  #categoriesList.active {
+    display: block;
+  }
+ #catAngle , #newsArrow {
+    display: inline-block;
+    transform: rotate(180deg);
+  }
+
+  #catAngle.rotate, #newsArrow.rotate {
+    transform: rotate(360deg);
+  }
+
+  #topNewsList {
+    max-height: 0;
+    margin-top: 0px; 
+  }
+
+  #topNewsList.active {
+    max-height: 2000px;
+    margin-top: 25px; 
+  }
+
+  }
+  
+</style>
+
+<script is:inline>
+  const heading = document.getElementById("categoriesHeading");
+  const list = document.getElementById("categoriesList");
+  const angle = document.getElementById("catAngle");
+
+  heading.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      list.classList.toggle("active");
+      angle.classList.toggle("rotate");
+    }
+  });
+
+  // Reset on desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      list.classList.remove("active");
+      angle.classList.remove("rotate");
+      list.style.maxHeight = "none";
+    }
+  });
+
+
+
+  const topNewsHeading = document.getElementById("topNewsHeading");
+  const topNewsList = document.getElementById("topNewsList");
+  const newsArrow = document.getElementById("newsArrow");
+
+  topNewsHeading.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      topNewsList.classList.toggle("active");
+      newsArrow.classList.toggle("rotate");
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+      topNewsList.classList.remove("active");
+      newsArrow.classList.remove("rotate");
+      topNewsList.style.maxHeight = "none";
+    }
+  });
+</script>

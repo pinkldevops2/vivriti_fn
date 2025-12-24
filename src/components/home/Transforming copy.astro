@@ -1,0 +1,216 @@
+---
+import LogoShape from '../../../public/Vivrithi_logo.svg';
+---
+<div class="bg-white w-full xl:px-0 md:px-[40px] md:pt-[70px] pt-[40px] px-[20px]">
+<div class="container mx-auto">
+  <div class="flex flex-wrap -mx-2">
+    <div class="w-full md:w-1/2 px-2">
+      <!-- Column 1 content -->
+      <div class="px-0 md:px-4 pb-15 md:pb-0">
+
+    <!-- Paragraph -->
+    <div data-reveal class="fade-up pt-[25px] flex justify-start flex-col items-start">
+        <h2 class="text-[35px] md:text-4xl font-heading leading-[120%] mb-4 gradient-text">
+      Transforming mid-market ambition into enterprise success
+
+    </h2>
+    <p class="max-w-3xl pt-[20px] leading-[24px] text-[#1B1B1B]">      
+      You need more than funding to grow. You need a partner who empowers your vision, simplifies challenges, and helps you make decisions with certainty for your business.
+    </p>
+    <p class="max-w-3xl pt-[20px] leading-[24px] text-[#1B1B1B]">      
+      Vivriti Next is India’s trusted growth partner, providing the tools, capital, and insights through four powerful pillars:
+    </p>
+    <a 
+  href="/contact" 
+  class="contact_cta inline-flex w-auto mt-[40px] contact_cta3 items-center gap-2 text-white uppercase hover:text-blue-600 transition mb-2"
+>
+  <span data-text="Know our story">Know our story</span>
+  <img src={LogoShape.src} alt="Vivrithi" class="w-5 h-5" />
+</a>
+        </div>
+      </div>
+    </div>
+    <div class="w-full flex md:w-1/2 px-2">
+      
+      <div data-reveal class="fade-up banner_sub_grid">
+        <div class="banner_sub_grid_item active banner_sub_grid_item1 relative left-padding-zero">
+                <div class="number_fill text-sm">01</div>
+                <div class="content_fill">
+                    <h3 class="text-lg uppercase">Invest</h3>
+                    <div class="mt-2 desc">Access the right funding, at the right time, with tailored structures to scale your business seamlessly.</div>
+                </div>
+                <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
+        </div>
+        <div class="banner_sub_grid_item banner_sub_grid_item2 relative border-right-0">
+                <div class="number_fill text-sm">02</div>
+                <div class="content_fill">
+                    <h3 class="text-lg uppercase">Borrow</h3>
+                    <div class="mt-2 desc">Access the right funding, at the right time, with tailored structures to scale your business seamlessly.</div>
+                </div>
+                <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
+        </div>
+        <div class="banner_sub_grid_item banner_sub_grid_item3 relative border-bottom-0 left-padding-zero">
+                <div class="number_fill text-sm">03</div>
+                <div class="content_fill">
+                    <h3 class="text-lg uppercase">Strategize</h3>
+                    <div class="mt-2 desc">Access the right funding, at the right time, with tailored structures to scale your business seamlessly.</div>
+                </div>
+                <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
+        </div>
+        <div class="banner_sub_grid_item banner_sub_grid_item4 relative border-right-0 border-bottom-0">
+                <div class="number_fill text-sm">04</div>
+                <div class="content_fill">
+                    <h3 class="text-lg uppercase">Tech</h3>
+                    <div class="mt-2 desc">Access the right funding, at the right time, with tailored structures to scale your business seamlessly.</div>
+                </div>
+                <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+</div>
+<style>
+.contact_cta3{
+    padding: 10px 30px;
+    display: flex;
+    font-size: 14px;
+}
+.banner_sub_grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.banner_sub_grid_item{
+    border-right: dashed 1px #F58220;
+    border-bottom: dashed 1px #F58220;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+    min-height: 250px;
+    transition: 0.3s ease-in all;
+}
+.banner_sub_grid_item3, .banner_sub_grid_item4{
+    min-height: 275px;
+}
+.banner_sub_grid_item::before{
+    content: '';
+    position: absolute;
+    background: #3BBAE2;
+    background: linear-gradient(32deg, rgba(59, 186, 226, 1) 0%, rgba(0, 1, 138, 1) 100%);
+    left: -15px;
+    top: -15px;
+    right: 15px;
+    bottom: 15px;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.3s ease-in all;
+}
+.banner_sub_grid_item2::before{
+    left: 15px;
+    top: -15px;
+    right: -15px;
+}
+.banner_sub_grid_item2 img{
+    right: 10px!important;
+}
+.banner_sub_grid_item3::before{
+    top: 15px;
+    bottom: 15px;
+}
+.banner_sub_grid_item3 img{
+    top: 40px!important;
+}
+.banner_sub_grid_item4::before{
+    top: 15px;
+    bottom: 15px;
+    left: 15px!important;
+    right: -15px!important;
+}
+.banner_sub_grid_item3.active, .banner_sub_grid_item4.active{
+    padding-bottom: 40px!important;
+}
+.banner_sub_grid_item4 img{
+    top: 40px!important;
+    right: 10px!important;
+}
+.banner_sub_grid_item img{
+    position: absolute;
+    z-index: 2;
+    right: 40px;
+    top: 10px;
+    opacity: 0;
+    transition: 0.3s ease-in all;
+}
+.banner_sub_grid_item .desc{
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-in all;
+}
+.banner_sub_grid_item div{
+    z-index: 2;
+}
+.banner_sub_grid_item.active img{
+    opacity: 1;
+}
+.banner_sub_grid_item.active div{
+    color:#fff;
+}
+.banner_sub_grid_item.active .content_fill .desc{
+    height: 100px;
+}
+.banner_sub_grid_item.active::before{
+    opacity: 1;
+}
+.banner_sub_grid_item.active{
+    padding: 40px;    
+}
+.left-padding-zero.active{
+    padding-left: 25px!important;
+}
+.left-padding-zero::before{
+    left: 0px!important;
+}
+</style>
+<script>
+  // Run this only in the browser
+  if (typeof window !== "undefined") {
+    const items = document.querySelectorAll(".banner_sub_grid_item");
+    let current = 0;
+    let interval;
+
+    // Function to activate an item
+    const activateItem = (index) => {
+      items.forEach((item, i) => {
+        item.classList.toggle("active", i === index);
+      });
+      current = index;
+    };
+
+    // Auto rotation function
+    const startRotation = () => {
+      interval = setInterval(() => {
+        current = (current + 1) % items.length;
+        activateItem(current);
+      }, 5000); // 5 seconds
+    };
+
+    // Stop rotation when hovering, and immediately activate hovered item
+    items.forEach((item, index) => {
+      item.addEventListener("mouseenter", () => {
+        clearInterval(interval);
+        activateItem(index);
+      });
+      item.addEventListener("mouseleave", () => {
+        startRotation();
+      });
+    });
+
+    // Initial activation and start rotation
+    activateItem(0);
+    startRotation();
+  }
+</script>
