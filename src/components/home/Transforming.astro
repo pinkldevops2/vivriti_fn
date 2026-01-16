@@ -2,6 +2,7 @@
 import LogoShape from '../../../public/Vivrithi_logo.svg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+const { nonce } = Astro.locals;
 ---
 <div class="bg-white w-full md:pt-[70px] pt-[30px]">
 <div class="container mx-auto px-4 lg:px-8 xl:px-4">
@@ -17,7 +18,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
     </h2>
     <p class="max-w-3xl pt-[20px] leading-[24px] text-[#1B1B1B]">      
-      You need more than funding to grow. You need a partner who empowers your vision, simplifies challenges, and helps you make decisions with certainty for your business.
+      You need more than funding to grow. You need a strategic partner who empowers your vision, simplifies challenges, and helps you make decisions with certainty for your business.
     </p>
     <p class="max-w-3xl pt-[20px] leading-[24px] text-[#1B1B1B]">      
       Vivriti Next is India’s trusted growth partner, providing the tools, capital, and insights through four powerful pillars:
@@ -131,7 +132,7 @@ import 'slick-carousel/slick/slick-theme.css';
   </div>
 </div>
 </div>
-<style>
+<style nonce={nonce}>
 .contact_cta3{
     display: none;
 }
@@ -246,11 +247,8 @@ import 'slick-carousel/slick/slick-theme.css';
     }
 }
 </style>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-
-
-<script>
+<script src="/scripts/jquery-3.6.0.min.js" defer></script>
+<script nonce={nonce}>
   
 import "slick-carousel";
 

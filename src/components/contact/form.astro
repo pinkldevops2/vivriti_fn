@@ -2,6 +2,8 @@
 import LogoShape from "../../../public/Vivrithi_logo.svg";
 ---
 <div class="map_background relative" id="leadgen">
+<form class="pt-5" name="VivritiNextContact" id="VivritiNextContact" method="post" enctype="multipart/form-data">
+ <input type="text" name="CreatedFrom" value="Vivriti Next Contact" type="hidden">
   <div class="container mx-auto h-full flex flex-col md:flex-row gap-4">
     <!-- Left column (66%) -->
     <div class="w-full md:w-1/2 p-4 py-15 flex flex-col justify-between">
@@ -34,9 +36,6 @@ Our team is here to guide you with expert guidance and prompt responses.
     <div class="w-full md:w-1/2 p-4 md:p-10 pb-18">
       <p class="text-center">Solutions designed for you.<br/>
         <b>Start by choosing your segment</b></p>
-      <form class="pt-5">
-
-        
 
 <div class="segment-dropdown md:hidden mb-5 mt-2">
   <select id="segmentSelect" class="w-full border rounded px-3 py-2 text-sm font-semibold">
@@ -92,11 +91,28 @@ Our team is here to guide you with expert guidance and prompt responses.
           <span data-text="Contact Us">Contact Us</span>
           <img src={LogoShape.src} class="w-5 h-5" />
         </button>
-      </form>
+      
     </div>
+  </div></form>
+</div>
+<!-- Popup -->
+<div
+  id="successModal"
+  class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50"
+>
+  <div class="bg-white p-6 rounded-lg text-center w-[90%] max-w-md">
+    <h2 class="text-xl font-semibold mb-2">Success 🎉</h2>
+    <p class="text-gray-600 mb-4">
+      Your form has been submitted successfully.
+    </p>
+    <button
+      id="closeModal"
+      class="bg-black text-white px-4 py-2 rounded"
+    >
+      Close
+    </button>
   </div>
 </div>
-
 <style>
   .map_background {
     background-size: cover;
@@ -180,6 +196,8 @@ Our team is here to guide you with expert guidance and prompt responses.
   const toggle = dropdown.querySelector('.dropdown-toggle');
   const label = document.getElementById('dropdownLabel');
   const items = dropdown.querySelectorAll('.dropdown-menu li');
+  const modal = document.getElementById("successModal");
+  const closeBtn = document.getElementById("closeModal");
 
   toggle.addEventListener('click', () => {
     dropdown.classList.toggle('open');
@@ -329,7 +347,9 @@ Our team is here to guide you with expert guidance and prompt responses.
     if (!isValid) return;
 
     // ✅ SUCCESS
-    alert("Your message received successfully!");
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    form.reset();
 
     form.reset();
     dropdownLabel.textContent = "Capital Raise";
@@ -395,4 +415,9 @@ if (segmentFromUrl && tabOptions[segmentFromUrl]) {
   // Default fallback
   activateSegment("");
 }
+
+ closeBtn.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  });
 </script>
