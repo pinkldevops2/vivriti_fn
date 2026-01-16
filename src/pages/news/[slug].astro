@@ -1,11 +1,33 @@
 ---
-export const prerender = false;
-
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/common/Header.astro";
 import Footer from "../../components/common/Footer.astro";
 import FooterMobile from "../../components/common/FooterMobile.astro";
 import { GRAPHQL } from "../../config/graphql.js";
+
+export async function getStaticPaths() {
+  const query = `
+    query AllNews {
+      news(first: 100) {
+        nodes {
+          slug
+        }
+      }
+    }
+  `;
+
+  const res = await fetch(GRAPHQL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query }),
+  });
+
+  const json = await res.json();
+
+  return json.data.news.nodes.map((n) => ({
+    params: { slug: n.slug },
+  }));
+}
 
 const { slug } = Astro.params;
 
