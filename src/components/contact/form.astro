@@ -38,7 +38,7 @@ Our team is here to guide you with expert guidance and prompt responses.
         <b>Start by choosing your segment</b></p>
 
 <div class="segment-dropdown md:hidden mb-5 mt-2">
-  <select id="segmentSelect" class="w-full border rounded px-3 py-2 text-sm font-semibold">
+  <select id="segmentSelect" name="segmentSelect" class="w-full border rounded px-3 py-2 text-sm font-semibold">
     <option value="borrow">Borrow</option>
     <option value="invest">Invest</option>
     <option value="advisory" selected>Advisory</option>
@@ -70,21 +70,22 @@ Our team is here to guide you with expert guidance and prompt responses.
         </div>
 
         <div class="form_element_1">
-          <input type="text" value="" placeholder="Name*" />
+          <input name="inputName" type="text" value="" placeholder="Name*" autocomplete="off" />
           <small class="error-text"></small>
         </div>
         <div class="form_element_1">
-          <input type="text" value="" placeholder="Phone" />
-        </div>
-        <div class="form_element_1">
-          <input type="text" value="" placeholder="Email*" />
+          <input name="inputPhone" type="text" value="" placeholder="Phone*" autocomplete="off" />
           <small class="error-text"></small>
         </div>
         <div class="form_element_1">
-          <input type="text" value="" placeholder="Organization" />
+          <input name="inputEmail" type="text" value="" placeholder="Email*" autocomplete="off" />
+          <small class="error-text"></small>
         </div>
         <div class="form_element_1">
-          <input type="text" value="" placeholder="Message*" />
+          <input name="Organization" type="text" value="" placeholder="Organization" autocomplete="off" />
+        </div>
+        <div class="form_element_1">
+          <input name="Message" type="text" value="" placeholder="Message*" autocomplete="off" />
           <small class="error-text"></small>
         </div>
         <button class="contact_cta flex justify-center items-center gap-2 text-white uppercase py-2 w-full text-[14px]">

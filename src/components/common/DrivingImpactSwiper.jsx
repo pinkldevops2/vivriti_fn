@@ -88,7 +88,7 @@ export default function DrivingImpactSwiper({ slides }) {
       </div>
       <div class="bg-white w-full px-[20px]">
       <a 
-  href="/contact" 
+  href="/about" 
   class="contact_cta w-full md:w-auto inline-flex w-auto mt-[50px] contact_cta3 items-center gap-2 text-white uppercase hover:text-blue-600 transition mb-2 px-[30px] py-[10px] text-[14px] justify-center"
 >
   <span data-text="Know our story">Know our story</span>

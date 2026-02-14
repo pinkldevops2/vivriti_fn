@@ -115,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isValid = true;
 
     const nameInput = form.querySelector('input[placeholder="Name*"]');
+    const phoneInput = form.querySelector('input[placeholder="Phone*"]');
     const emailInput = form.querySelector('input[placeholder="Email*"]');
     const messageInput = form.querySelector('input[placeholder="Message*"]');
 
@@ -125,23 +126,84 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Name
-    if (!nameInput.value.trim()) {
+    const name = nameInput.value.trim();
+
+    const nameRegex = /^[A-Za-z]+([ '-][A-Za-z]+)*$/;
+
+    if (!name) {
       showError(nameInput, "Name is required");
+      isValid = false;
+
+    } else if (name.length < 3) {
+      showError(nameInput, "Name must be at least 3 characters");
+      isValid = false;
+
+    } else if (name.length > 50) {
+      showError(nameInput, "Name is too long");
+      isValid = false;
+
+    } else if (!nameRegex.test(name)) {
+      showError(nameInput, "Only letters allowed (no numbers or symbols)");
       isValid = false;
     } else {
       clearError(nameInput);
     }
 
+
+    //Phone
+    const phone = phoneInput.value.trim().replace(/\D/g, ""); // remove non-digits
+
+    const phoneRegex = /^[6-9]\d{9}$/;
+
+    if (!phone) {
+      showError(phoneInput, "Phone number is required");
+      isValid = false;
+
+    } else if (!phoneRegex.test(phone)) {
+      showError(phoneInput, "Enter valid 10-digit mobile number");
+      isValid = false;
+
+    } else if (/^(\d)\1{9}$/.test(phone)) {
+      showError(phoneInput, "Invalid phone number");
+      isValid = false;
+
+    } else {
+      clearError(phoneInput);
+      phoneInput.value = phone; // cleaned value
+    }
+
     // Email
-    if (!emailInput.value.trim()) {
+    let email = emailInput.value.trim().toLowerCase();
+
+    // strong but safe regex
+    const emailRegex =
+      /^[a-z0-9]+([._%+-]?[a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)+$/;
+
+    if (!email) {
       showError(emailInput, "Email is required");
       isValid = false;
-    } else if (!emailRegex.test(emailInput.value.trim())) {
+
+    } else if (email.length > 254) {
+      showError(emailInput, "Email is too long");
+      isValid = false;
+
+    } else if (/\s/.test(email)) {
+      showError(emailInput, "Spaces are not allowed");
+      isValid = false;
+
+    } else if (email.includes("..")) {
+      showError(emailInput, "Invalid email format");
+      isValid = false;
+
+    } else if (!emailRegex.test(email)) {
       showError(emailInput, "Enter a valid email");
       isValid = false;
+
     } else {
       clearError(emailInput);
+      emailInput.value = email; // normalized
     }
+
 
     // Message
     if (!messageInput.value.trim()) {
