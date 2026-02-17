@@ -1,3 +1,7 @@
+---
+const { contact  } = Astro.props;
+
+---
 <script src='//in.fw-cdn.com/32029073/1077345.js' chat='false'> </script>
 <div class="container mx-auto p-4">
     <div class="border border-[#F58220] border-dashed p-0 md:p-7">
@@ -11,15 +15,20 @@
             <div class="grid md:grid-cols-2 gap-[20px]">
                 <div class="p-4 pl-0 md:h-[80px] flex flex-col justify-center">
                         <p class="font-semibold uppercase">Phone</p>
-                        <a class="mt-4" href="tel:+91 44 4007 4850">+91 44 4007 4850</a>
+                       <a class="mt-4" href={`tel:${contact.phone}`}>
+  {contact.phone}
+</a>
+
                 </div>
                 <div class="pl-0 md:pl-2 md:h-[80px] flex flex-col justify-center">
                     <p class="font-semibold uppercase">Working Hours</p>
-                    <a class="mt-4">9:30 AM to 6:30 PM</a>
+                    <a class="mt-4">{contact.workingHours}</a>
                 </div>
                 <div class="p-4 pl-0 md:h-[80px] flex flex-col justify-center">
                     <p class="font-semibold uppercase">Email</p>
-                    <a class="mt-4" href="mailto:contact@vivritinext.com">contact@vivritinext.com</a>
+                <a class="mt-4" href={`mailto:${contact.email}`}>{contact.email}</a>
+
+                 
                 </div>
             </div>
                         
@@ -28,21 +37,20 @@
     <div class="mt-12 px-4">
                 <p class="font-bold">ADDRESS</p>
                 <div class="grid md:grid-cols-4 gap-[10px] md:gap-[20px]">
-                <div class="py-4">                        
-                        <p><span class="font-bold">Registered:</span><br/>Vivriti Next Limited,<br/>Prestige Zackria Metropolitan, 
-No 200/1-8, 8th Floor, Block 1, Anna Salai, Chennai,<br/>Tamil Nadu- 600002, India</p>
+                <div class="py-4"> <span class="font-bold">Registered:</span><br/>  <span set:html= {contact.address?.registered} ></span>             
+                        <p></p>
                 </div>
                 <div class="py-4 pr-4 md:pl-4">
                     <p>
-<span class="font-bold">Bengaluru:</span><br/>Vivriti Next Limited,<br/>12<sup>th</sup> Floor, The Millenia, Tower A, No 1 and 2 Murphy Road, Ulsoor, Bengaluru,<br/>Karnataka–560008, India</p>
+<span class="font-bold">Bengaluru:</span><br/> <span set:html= {contact.address?.bengaluru} ></span> </p>
                 </div>
                 <div class="py-4 pr-4 md:pl-4">
                     <p>
-<span class="font-bold">Indore:</span><br/>Vivriti Next Limited,<br/>Awfis Space Solutions Limited 2<sup>nd</sup> Floor, Plot No. B-7, Scheme No. PU-4 Commercial Vijay Nagar, Indore,<br/>Madhya Pradesh – 452010</p>
+<span class="font-bold">Indore:</span><br/> <span set:html= {contact.address?.indore} ></span> </p>
                 </div>
                 <div class="py-4 pr-4 md:pl-4">
                     <p>
-<span class="font-bold">Vizag:</span><br/>Vivriti Next Limited,<br/>Orange Business Centre, First Floor, Plot No. 21, Beach Road, Kirlampudi Layout, Chinna Waltair, Pedda Waltair, Visakhapatnam, Vizag,<br/>Andhra Pradesh – 530017</p>
+<span class="font-bold">Vizag:</span><br/> <span set:html= {contact.address?.vizag} ></span> </p>
                 </div>
             </div>
             </div>

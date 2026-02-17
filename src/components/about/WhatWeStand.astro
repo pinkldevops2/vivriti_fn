@@ -1,5 +1,7 @@
 ---
 import LogoShape from "../../../public/Vivrithi_logo.svg";
+const { data } = Astro.props;
+
 ---
 
 <div
@@ -30,9 +32,9 @@ import LogoShape from "../../../public/Vivrithi_logo.svg";
             class="w-full hovergradient shrink-0 bg-[url(/vissionbg.png)] bg-cover bg-center min-h-[300px] sm:min-h-[300px] xl:aspect-31/42 lg:aspect-auto h-full object-cover flex items-start flex-col justify-end p-5 overflow-hidden text-dispalyhover"
           >
             <h2
-              class="text-[17px] font-heading leading-[120%] gradient-text py-5 uppercase mb-0"
+              class="text-[17px] font-heading leading-[120%] gradient-text py-5 uppercase mb-0" set:html={data.vissionTitle}
             >
-              Built<br/>Around <br/>Our Vision
+             
             </h2>
             <a
               data-reveal
@@ -55,8 +57,8 @@ import LogoShape from "../../../public/Vivrithi_logo.svg";
               </span>
             </a>
             <div class="hover-dispaly">
-              <p data-reveal class="fade-up font-normal text-[17px] mb-4">
-                We aim to become India’s first integrated mid-market debt solutions provider.
+              <p data-reveal class="fade-up font-normal text-[17px] mb-4" set:html={data.visionDescription}>
+               
               </p>
               <!--  <p data-reveal class="fade-up text-[17px] font-semibold">
                  As part of the Vivriti Group, which over the last 8+ years has built a trusted franchise with ₹13,000+ crore in assets, VAM supports 500+ enterprises across 55+ sectors and 20+ states.
@@ -69,13 +71,13 @@ import LogoShape from "../../../public/Vivrithi_logo.svg";
             class="w-full hovergradient shrink-0 bg-[url(/missionbg.png)] bg-cover bg-center xl:aspect-53/43 lg:aspect-auto object-cover flex items-start flex-1 p-5 flex-col justify-end overflow-hidden text-dispalyhover gap-3"
           >
            <h2
-              class="text-[17px] font-heading leading-[120%] mt-4 gradient-text uppercase"
+              class="text-[17px] font-heading leading-[120%] mt-4 gradient-text uppercase" set:html={data.missionTitle}
             >
-              Guided by a <br/>Strong <br/>Mission
+             
             </h2>
             <div class="hover-dispaly">
-              <p data-reveal class="fade-up font-normal text-[17px]">
-                We provide bespoke debt solutions for the growth of mid-market and next-generation enterprises, delivering speed, convenience, and efficiency. Our goal is to enable a cumulative credit flow of ₹1 trillion by FY26, supporting more than 5,000 enterprises across India.
+              <p data-reveal class="fade-up font-normal text-[17px]" set:html={data.missionDescription}>
+               
               </p>
             </div>
             <a

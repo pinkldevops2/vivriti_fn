@@ -2,6 +2,9 @@
 import LogoShape from '../../../public/Vivrithi_logo.svg';
 import LogoShape2 from '../../../public/vamlogo.svg';
 import { GRAPHQL } from "../../config/graphql.js";
+
+const { vivritiAmc } = Astro.props;
+
 import BlogCard from "@/components/common/NewsCard.astro";
 
 
@@ -148,17 +151,16 @@ latestNews = latestNews.slice(0, 1);
                       </a>
                 <div class="hover-dispaly">
                   <p data-reveal class="fade-up font-normal text-[18px] mb-4">
-                Vivriti Asset Management (VAM) offers unique investment opportunities in the private credit market, pioneering asset classes such as Performing Credit in Category II AIFs and Semi-Liquid strategies in Category III AIFs.</p>
+              {vivritiAmc?.whoWeAre}</p>
                 
                 </div>
                 
           </div>
       </div>
       <div class="basis-1/2 flex flex-col">
-        <div class="w-full shrink-0 bg-[url(/VAM.png)] bg-cover bg-center  min-h-[258px] xl:aspect-159/171 lg:aspect-auto object-cover flex items-center mb-[20px] flex-col justify-end">
-                 <h2 class="text-[18px] font-heading leading-[120%] text-white uppercase">
-                    Vivriti ASSET Management
-                </h2>
+        <div class="w-full shrink-0 bg-[url(/VAM.png)] bg-cover bg-center  min-h-[258px] xl:aspect-159/171 lg:aspect-auto object-cover flex items-center mb-[20px] flex-col justify-end" style={`background-image: url(${vivritiAmc?.rightCardImage?.node?.sourceUrl})`}>
+                 <h4 class="text-[18px] font-heading leading-[120%] text-white uppercase">
+ {vivritiAmc?.rightCardTitle}                </h2>
                  <a
                         href="https://www.vivritiamc.com"
                         target="_blank"
@@ -172,7 +174,7 @@ latestNews = latestNews.slice(0, 1);
           <div class="w-full hovergradient shrink-0 bg-[url(/what-we-do.png)] bg-cover bg-center xl:aspect-53/43 lg:aspect-auto object-cover flex items-start flex-1 p-5 flex-col justify-end overflow-hidden text-dispalyhover">
             <div class="hover-dispaly">
                 <p data-reveal class="fade-up font-normal text-[18px]">
-                We provide strong risk management and predictable, risk-adjusted returns to our investors, which include HNIs, UHNIs, banks, financial institutions, offshore investors, family offices, and foundations.
+            {vivritiAmc?.whatWeDo}
                 </p>
                 </div>
                  <h2 class="text-[18px] font-heading leading-[120%] mt-4 gradient-text uppercase">

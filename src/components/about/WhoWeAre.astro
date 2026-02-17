@@ -2,6 +2,8 @@
 import BlogCard from "@/components/common/NewsCard.astro";
 import LogoShape from '../../../public/Vivrithi_logo.svg';
 import LogoShape2 from '../../../public/logovcl.svg';
+const { vivritiCapital } = Astro.props;
+
 import { GRAPHQL } from "../../config/graphql.js";
 
 
@@ -157,18 +159,18 @@ latestNews = latestNews.slice(0, 1);
 mid-market enterprises across India. Since inception, we have been addressing the gap in India’s debt capital markets by offering customised financing solutions across diversified sectors. 
                 </p> -->
                 <p data-reveal class="fade-up font-normal text-[18px]">
-               Vivriti Capital (VCL) aims to bring necessary debt finance to hundreds of 
-mid-market enterprises across India. Since inception, we have been addressing the gap in India’s debt capital markets by offering customised financing solutions across diversified sectors.
+              {vivritiCapital?.whoWeAre}
                 </p>
                 </div>
                 
           </div>
       </div>
       <div class="basis-1/2 flex flex-col">
-        <div class="w-full shrink-0 bg-[url(/vivrithi-capital.png)] bg-cover bg-center  min-h-[300px] xl:aspect-159/171 lg:aspect-auto object-cover flex items-center mb-[20px] flex-col justify-end">
-                 <h2 class="text-[18px] font-heading leading-[120%] text-white uppercase">
-                    Vivriti capital
-                </h2>
+        <div class="w-full shrink-0 bg-cover bg-center  min-h-[300px] xl:aspect-159/171 lg:aspect-auto object-cover flex items-center mb-[20px] flex-col justify-end" style={`background-image: url(${vivritiCapital?.rightCardImage?.node?.sourceUrl})`}
+>
+  
+                 <h4 class="text-[18px] font-heading leading-[120%] text-white uppercase">
+      {vivritiCapital?.rightCardTitle}            </h2>
                  <a
                         href="https://www.vivriticapital.com"
                         target="_blank"
@@ -182,7 +184,8 @@ mid-market enterprises across India. Since inception, we have been addressing th
           <div class="w-full hovergradient shrink-0 bg-[url(/what-we-do.png)] bg-cover bg-center xl:aspect-53/33 lg:aspect-auto object-cover flex items-start flex-1 p-5 flex-col justify-end overflow-hidden text-dispalyhover">
             <div class="hover-dispaly">
                 <p data-reveal class="fade-up font-normal text-[18px]">
-                 We have supported several mid-sized companies in achieving scale and building highly successful franchises.
+                                 {vivritiCapital?.whatWeDo}
+
                 </p>
                 </div>
                  <h2 class="text-[18px] font-heading leading-[120%] mt-4 gradient-text uppercase">

@@ -6,124 +6,34 @@ import VAMAImpactByNumber from "../vam/ImpactByNumber.astro";
 import BoardMember from '@/components/common/BoardMemberSwiper';
 
 
+const { leaders } = Astro.props;
 
-const slides1 = [
-  { 
-    id: "01", 
-    title: "Vineet Sukumar", 
-    desc: "Founder and Managing Director",
-    img: "/p1.png",
-    link:"https://www.linkedin.com/in/vineetsukumar/",
-  },
-  { 
-    id: "02", 
-    title: "Gaurav Kumar", 
-    desc: "Director",
-    img: "/p2.png",
-    link:"https://www.linkedin.com/in/gaurav-kumar-2a465114/",
-  },
-  { 
-    id: "03", 
-    title: "John Tyler Day", 
-    desc: "Nominee Director",
-    img: "/p3.png",
-    link:"https://www.linkedin.com/in/tyler-day-2906161b/",
-  },
-  { 
-    id: "04", 
-    title: "Lazar Zdravkovic", 
-    desc: "Nominee Director",
-    img: "/p4.png",
-    link:"https://www.linkedin.com/in/lazar-zdravkovic-01b62056/",
-  },
-  { 
-    id: "05", 
-    title: "Gopal Srinivasan", 
-    desc: "Nominee Director",
-    img: "/p5.png",
-    link:"https://www.linkedin.com/in/gopal-srinivasan-4630808/",
-  },
-];
 
-const slides2 = [
-  { 
-    id: "01", 
-    title: "Vineet Sukumar", 
-    desc: "Founder and Managing Director",
-    img: "/p1.png",
-    link:"https://www.linkedin.com/in/vineetsukumar/",
-  },
-  { 
-    id: "02", 
-    title: "Sushantam Mohan", 
-    desc: "Chief Data Officer",
-    img: "/p15.png",
-    link:"https://www.linkedin.com/in/mohan-sushantam-8712455/",
-  },
-  { 
-    id: "03", 
-    title: "Prasenjit Datta", 
-    desc: "Chief Technology Officer",
-    img: "/p7.png",
-    link:"https://www.linkedin.com/in/prasenjitdatta/",
-  },
-  { 
-    id: "04", 
-    title: "Saravanakumar K", 
-    desc: "Chief Information Security Officer",
-    img: "/p6.png",
-    link:"https://www.linkedin.com/in/saravanakumar-krishnamurthy-15484b12/",
-  },
-  { 
-    id: "05", 
-    title: "Srinivasaraghavan B", 
-    desc: "Chief Financial Officer",
-    img: "/p8.png",
-    link:"https://www.linkedin.com/in/srinivasaraghavan-badrinathan-125230b1/",
-  },
-   { 
-    id: "06", 
-    title: "Ajithkumar Menon", 
-    desc: "Chief Operating Officer",
-    img: "/p9.png",
-    link:"https://www.linkedin.com/in/ajit-k-menon-7880071/",
-  },
-   { 
-    id: "07", 
-    title: "Resham Chhabra", 
-    desc: "Director and Group Head,<br/>Corporate Marketing and PR",
-    img: "/p10.png",
-    link:"https://www.linkedin.com/in/reshamchhabra/",
-  },
-   { 
-    id: "08", 
-    title: "Raja Rajeshwari Kodan", 
-    desc: "Executive Vice President and Group Head, Human Resources",
-    img: "/p11.png",
-    link:"https://www.linkedin.com/in/raja-rajeswari-kodan-80846015/",
-  },
-  { 
-    id: "10", 
-    title: "Smitha Jain Arora", 
-    desc: "Vice President and Group Head, Sustainability and Impact",
-    img: "/p12.png",
-    link:"https://www.linkedin.com/in/smitha-jain-arora-946100234/",
-  },
-  { 
-    id: "11", 
-    title: "Deepak Kumar", 
-    desc: "Senior Director and Group Head, Administration",
-    img: "/p14.png",
-    link:"https://www.linkedin.com/in/deepak-kumar-sahoo-691648ba/",
-  },
-  { 
-    id: "09", 
-    title: "Ravi Kabra", 
-    desc: "Senior Vice President and Group Head, Client Acquisition Group",
-    img: "/p13.png",
-    link:"https://www.linkedin.com/in/ravi-kabra-52a0045/",
-  }
-];
+
+const directors = leaders.filter(leader =>
+  leader.leaderTypes?.nodes?.some(type => type.slug === "board-of-director")
+);
+
+const team = leaders.filter(leader =>
+  leader.leaderTypes?.nodes?.some(type => type.slug === "leadership")
+);
+
+const slides1 = directors.map((leader, index) => ({
+  id: String(index + 1).padStart(2, "0"),
+  title: leader.title,
+  desc: leader.designation,
+  img: leader.featuredImage?.node?.sourceUrl,
+  link: leader.linkedinUrl,
+}));
+
+const slides2 = team.map((leader, index) => ({
+  id: String(index + 1).padStart(2, "0"),
+  title: leader.title,
+  desc: leader.designation,
+  img: leader.featuredImage?.node?.sourceUrl,
+  link: leader.linkedinUrl,
+}));
+
 
 
 ---

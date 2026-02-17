@@ -6,12 +6,84 @@ import FooterMobile from "../components/common/FooterMobile.astro";
 import Banner from '@/components/invest/banner.astro';
 import Tabs from '@/components/invest/tabs.astro';
 import ContactButton from '../components/common/HomeGetInTouch.jsx';
+
+import { GRAPHQL } from '@/config/graphql';
+
+const query = `
+{
+  page(id: "invest", idType: URI) {
+    invest {
+      bannerHeading
+      bannerSubHeading
+      bannerImage { node { sourceUrl } }
+      
+      tab1Heading
+      tab1Content
+      tab1Banner { node { sourceUrl } }
+      
+      tab2Heading
+      tab2Content
+      tab2Banner { node { sourceUrl } }
+
+      tab3Heading
+      tab3Content
+      tab3Banner { node { sourceUrl } }
+
+       tab4Heading
+      tab4Content
+      tab4Banner { node { sourceUrl } }
+    }
+  }
+}
+`;
+
+const res = await fetch(GRAPHQL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ query })
+});
+
+const data = await res.json();
+const invest = data.data.page.invest;
+
+
+const tabs = [
+  {
+    label: invest.tab1Heading,
+    title: invest.tab1Heading,
+    text: invest.tab1Content,
+    img: invest.tab1Banner?.node?.sourceUrl
+  },
+  {
+    label: invest.tab2Heading,
+    title: invest.tab2Heading,
+    text: invest.tab2Content,
+    img: invest.tab2Banner?.node?.sourceUrl
+  },
+  {
+    label: invest.tab3Heading,
+    title: invest.tab3Heading,
+    text: invest.tab3Content,
+    img: invest.tab3Banner?.node?.sourceUrl
+  },
+   {
+    label: invest.tab4Heading,
+    title: invest.tab4Heading,
+    text: invest.tab4Content,
+    img: invest.tab4Banner?.node?.sourceUrl
+  }
+];
 ---
 <Layout>
     <ContactButton label={"Tell Us Your Portfolio Needs"} href={"/contact-us/?segment=invest#leadgen"} />
 <Header />
-<Banner/>
-<Tabs/>
+<Banner
+    heading={invest.bannerHeading}
+    subHeading={invest.bannerSubHeading}
+    image={invest.bannerImage?.node?.sourceUrl}
+  />
+
+  <Tabs tabs={tabs} />
 <Footer />
 <FooterMobile/>
 </Layout>

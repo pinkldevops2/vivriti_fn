@@ -16,21 +16,152 @@ import Business from '@/components/about/YourBusiness.astro';
 import Milestone from '@/components/about/milestone.astro';
 import TeamMember from '@/components/about/MemberTabs.astro';
 import ContactButton from '../components/common/HomeGetInTouch.jsx';
+
+import { GRAPHQL } from "@/config/graphql";
+const query = `
+query {
+    page(id: "about-us", idType: URI) {
+    title
+    aboutUs
+    {
+      mainHeading
+      mainDescription
+      bannerImage{
+        node {
+          sourceUrl
+        }
+      }
+      title
+       image{
+        node {
+          sourceUrl
+        }
+      }
+      description
+      
+      #firrst 
+      vivritiCapital {
+      logo {
+        node {
+          sourceUrl
+        }
+      }
+     whoWeAre
+      whatWeDo
+      rightCardTitle
+      rightCardImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+       #second 
+			vivritiAmc  {
+      logo {
+        node {
+          sourceUrl
+        }
+      }
+     whoWeAre
+      whatWeDo
+      rightCardTitle
+      rightCardImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+		
+      #third
+      whatWeStandFor{
+        missionTitle
+        missionDescription
+        vissionTitle
+        visionDescription
+      }
+      
+      #fourth
+       weGoTheExtraMileToMaximiseYourPotential{
+        outreach
+        productDiversity
+        underwriting
+        continuousEngagement
+      }
+      
+      
+      
+      
+      
+    }
+    
+  }
+  
+  leaders(first: 100) {
+    nodes {
+      id
+      title
+      slug
+      designation
+      linkedinUrl
+
+      leaderTypes {
+        nodes {
+          name
+          slug
+        }
+      }
+
+ featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+
+    }
+  }
+}`
+;
+const response = await fetch(GRAPHQL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ query }),
+});
+
+const { data } = await response.json();
+
+const about = data.page.aboutUs;
+const leaders = data.leaders.nodes;
 ---
 
 <Layout>
     <ContactButton label={"Let’s Secure Your Future"} href={"/contact-us/?segment=other#leadgen"} />
 <Header />
-<BannerTop/>
-<NewCategory/>
-<TabsSection/>
-<MissionVission/>
-<WhyVCL/>
-<!-- <WeGoMaxMobile/> -->
-<!-- <BuildOnData/>
-<Business/>
-<Milestone/> -->
-<TeamMember/>
+ <BannerTop 
+    title={about.mainHeading}
+    description={about.mainDescription}
+    image={about.bannerImage?.node?.sourceUrl}
+  />
+
+  <NewCategory 
+    title={about.title}
+    description={about.description}
+    image={about.image?.node?.sourceUrl}
+  />
+
+  <TabsSection 
+    vivritiCapital={about.vivritiCapital}
+    vivritiAmc={about.vivritiAmc}
+  />
+
+  <MissionVission 
+    data={about.whatWeStandFor}
+  />
+
+  <WhyVCL 
+    data={about.weGoTheExtraMileToMaximiseYourPotential}
+  />
+
+  <TeamMember leaders={leaders} />
 	
 <Footer />
 <FooterMobile/>

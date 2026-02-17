@@ -1,5 +1,7 @@
 ---
 import LogoShape from '../../../public/Vivrithi_logo.svg';
+const { data } = Astro.props;
+
 ---
 
 <div class="bg-[#3bbae212] w-full min-h-[600px] xl:px-0 md:px-[40px] md:pt-[70px] pt-[30px] px-[20px] mt-5 md:mt-0">
@@ -40,8 +42,8 @@ import LogoShape from '../../../public/Vivrithi_logo.svg';
               <div class="absolute inset-0 flex flex-col items-start justify-start text-white [transform:rotateY(180deg)] [backface-visibility:hidden] banner_sub_grid_item_bg">
                 <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
                 <h3 class="text-lg uppercase text-[17px] font-semibold mt-4">Outreach</h3>
-                <div class="mt-2 mb-5 desc text-sm md:text-lg">
-                  We design structured debt funds that help businesses access capital quickly, efficiently, and with clarity — bridging gaps underserved by traditional lending avenues.
+                <div class="mt-2 mb-5 desc text-sm md:text-lg" set:html={data.outreach}>
+                 
                 </div>
               </div>
 
@@ -64,9 +66,8 @@ import LogoShape from '../../../public/Vivrithi_logo.svg';
               <div class="absolute inset-0 flex flex-col items-start justify-start text-white [transform:rotateY(180deg)] [backface-visibility:hidden] banner_sub_grid_item_bg">
                 <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
                 <h3 class="text-lg uppercase text-[17px] font-semibold mt-4">Product Diversity</h3>
-                <div class="mt-2 mb-5 desc text-sm md:text-lg">
-                  Our investments target enterprises with strong operational cash flows and proven business models, offering stable and scalable financing solutions.
-
+                <div class="mt-2 mb-5 desc text-sm md:text-lg" set:html={data.productDiversity}>
+               
                 </div>
               </div>
             </div>
@@ -90,8 +91,8 @@ import LogoShape from '../../../public/Vivrithi_logo.svg';
                 <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
                 <h3 class="text-lg uppercase text-[17px] font-semibold mt-4">Underwriting
 </h3>
-                <div class="mmt-2 mb-5 desc text-sm md:text-lg">
-                 We ensure turnaround time in less than 10 days. By spending time at your workplace and using the power of technology, we understand your business and shorten the onboarding journey time.
+                <div class="mmt-2 mb-5 desc text-sm md:text-lg" set:html={data.underwriting}>
+                
 
                 </div>
               </div>
@@ -116,8 +117,8 @@ import LogoShape from '../../../public/Vivrithi_logo.svg';
                 <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
                 <h3 class="text-lg uppercase text-[17px] font-semibold mt-4">Continuous Engagement
 </h3>
-                <div class="mt-2 mb-5 desc text-sm md:text-lg">
-                  From high-net worth individuals (HNI) and ultra HNIs to banks, financial institutions, family offices, and global investors, our funds serve a wide array of partners looking for predictable returns and structured opportunities.
+                <div class="mt-2 mb-5 desc text-sm md:text-lg" set:html={data.continuousEngagement}>
+                 
 
                 </div>
               </div>

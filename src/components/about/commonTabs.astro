@@ -3,6 +3,7 @@ import Transforming from "./WhoWeAre.astro";
 import ImpactByNumber from "./ImpactByNumber.astro";
 import VAMAbout from "../vam/WhoWeAre.astro";
 import VAMAImpactByNumber from "../vam/ImpactByNumber.astro";
+const { vivritiCapital,vivritiAmc } = Astro.props;
 ---
 <div class="w-full mx-auto relative">
   <!-- Tab Buttons -->
@@ -34,7 +35,7 @@ import VAMAImpactByNumber from "../vam/ImpactByNumber.astro";
       id="tab1"
       class="tab-panel inset-0 transition-all duration-500 ease-out transform opacity-100 translate-y-0"
     >
-      <Transforming />
+      <Transforming {vivritiCapital}/>
       <ImpactByNumber />
     </div>
 
@@ -43,7 +44,7 @@ import VAMAImpactByNumber from "../vam/ImpactByNumber.astro";
       id="tab2"
       class="tab-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
     >
-      <VAMAbout />
+      <VAMAbout {vivritiAmc} />
       <VAMAImpactByNumber />
     </div>
   </div>

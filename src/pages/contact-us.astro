@@ -6,10 +6,49 @@ import FooterMobile from "../components/common/FooterMobile.astro";
 import Address from '../components/contact/address.astro';
 import Map from '@/components/contact/map.astro';
 import Form from '@/components/contact/form.astro';
+
+import { GRAPHQL } from "@/config/graphql";
+
+const query = `
+query {
+  page(id: "contact-us", idType: URI) {
+    contactUs {
+      phone
+      workingHours
+      email
+      address {
+        registered
+        bengaluru
+        indore
+        vizag
+      }
+    }
+  }
+}
+
+
+`;
+const res = await fetch(GRAPHQL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ query }),
+});
+
+const data = await res.json();
+
+const pageData = data?.data?.page?.contactUs;
+
+if (!pageData) {
+  throw new Error("Contact Us page data not found");
+}
+
+console.log(pageData);
+
+
 ---
 <Layout>
 <Header />
-<Address />
+<Address contact={pageData} />
 <Map/>
 <Form />
 <Footer />
