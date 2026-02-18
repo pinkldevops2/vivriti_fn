@@ -9,7 +9,7 @@ const slides = [
   "/slides/artemis/Artemis-03.jpg",
   "/slides/artemis/Artemis-04.jpg",
 ];
-
+const {data} = Astro.props;
 --- 
  <div class="w-full">
     <div class="relative overflow-hidden">
@@ -22,14 +22,10 @@ const slides = [
          <h2
         class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
       >
-       The digital backbone<br/>
-for institutional credit deployment
+       {data.title}
       </h2>
-       <p data-reveal class="fade-up font-normal text-[17px] w-full">
-        Artemis is a new-generation loan onboarding and booking system, purpose-built for institutional lending. Designed with active capital deployment in mind, it connects corporate borrowers and financial service institutions with institutional capital.<br/><br/>
-With deep configurability, real-time controls, and workflow orchestration, Artemis enables compliant, scalable credit deployment across multiple asset classes. <br/><br/>
-More than a platform, it is an institutional capital deployment control tower. Whether you’re a corporate seeking bespoke structured finance or an NBFC scaling through co-lending, Artemis gives you the flexibility, governance, and performance advantage to stay ahead in today’s evolving credit markets.
-
+       <p data-reveal class="fade-up font-normal text-[17px] w-full" set:html={data.content}>
+       
       </p>
        <h2
         class="text-[18px] md:text-[21px] md:text-4xl font-heading font-semibold leading-[120%] my-4 w-full"

@@ -1,116 +1,49 @@
 ---
 import LogoShape from "../../../public/Vivrithi_logo.svg";
 import LogoShape1 from "../../../public/logowhite.svg";
+
+const { features = [] } = Astro.props;
 ---
 
 <div class="w-full xl:px-0 md:px-[0px] md:pt-[70px] pt-[40px] px-[10px] md:px-[20px]">
   <div class="container mx-auto px-4 lg:px-8 xl:px-4">
-    <div
-      class="flex flex-col md:flex-row justify-between md:gap-30 mb-4 md:mb-20"
-    >
-    <div class="w-full md:w-2/12">
-      <h2
-        class="text-[28px] sticky top-0  md:text-[35px] md:text-4xl md:mt-15 font-heading leading-[120%] mb-4 gradient-text"
-      >
-        Key features
-      </h2>
+    <div class="flex flex-col md:flex-row justify-between md:gap-30 mb-4 md:mb-20">
+      <div class="w-full md:w-2/12">
+        <h2 class="text-[28px] sticky top-0 md:text-[35px] md:text-4xl md:mt-15 font-heading leading-[120%] mb-4 gradient-text">
+          Key Features
+        </h2>
       </div>
-      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-2 gap-x-15 gap-y-5">
-        <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">01</div>
-          <h3
-            class="text-[22px] font-heading md:text-[28px] leading-[34px] font-normal font-heading mt-4 gradient-text"
-          >
-            Onboarding and Due <br/>Diligence (Credlyst)
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
-            <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                <span class="font-semibold">Compliance Checks: </span> GST, EPFO,
-                AML, litigations.
-              </li>
-              <li class="list-disc">
-                <span class="font-semibold">Financial & Background Checks: </span> Bank Statement Analysis, Bureau, Crime Check.
-              </li>
-              <li class="list-disc">
-                <span class="font-semibold">Financial Data Collection: </span> GST, EPFO,
-                Auto-extracts P&L statements and balance sheets.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">02</div>
-          <h3
-            class="text-[22px] md:text-[28px] leading-[34px] font-normal font-heading mt-4 gradient-text"
-          >
-            Risk Assessment<br/>
-and Calculations (CMRS)
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
-            <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                <span class="font-semibold">Financial Statement Processing: </span> Automated processing of financial statements.
-              </li>
-              <li class="list-disc">
-                <span class="font-semibold">Risk Metrics and Ratios: </span> Auto-calculates key ratios and risk metrics per organisational underwriting standards.
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">03</div>
-          <h3
-            class="text-[22px] md:text-[28px] font-heading leading-[34px] font-normal mt-4 gradient-text"
-          >
-            Three Outputs<br/>
-for Credit Decisioning
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
-            <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                <span class="font-semibold">Credit Information Report (CIR):  </span> Detailed borrower profile with background checks, financial health, and risk ratings. 
-              </li>
-              <li class="list-disc">
-                <span class="font-semibold">Limits: </span> Proposed loan limits based on CIR + CMRS outputs.
-              </li>
-              <li class="list-disc">
-                <span class="font-semibold">Head of Terms (HOT): </span> Term sheet with principal, interest, tenure, security, and covenants. 
-              </li>
-            </ul>
-          </div>
-          
-        </div>
 
-         <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">04</div>
-          <h3
-            class="text-[22px] md:text-[28px] font-heading leading-[34px] font-normal mt-4 gradient-text"
-          >
-            Credit Committee<br/>
-Approval
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
+      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-1 gap-x-15 gap-y-5">
+
+       <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-15 gap-y-5">
+  {features.map((section, sIdx) =>
+    section.items?.map((item, iIdx) => (
+      <div class="w-full" key={`${sIdx}-${iIdx}`}>
+        <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
+        <div class="border-1 border-dashed border-[#F58220] my-6"></div>
+        <div class="number_fill text-[14px]">{String(iIdx + 1).padStart(2, '0')}</div>
+        <h3 class="text-[22px] md:text-[28px] font-heading leading-[34px] font-normal mt-4 gradient-text">
+          {item.title}
+        </h3>
+        <div class="mt-2 mb-5 desc text-sm md:text-lg">
+        
+
+          {item.sub_items?.length > 0 && (
             <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                <span class="font-semibold">Independent Review:  </span>  CIR, Limits, and HOT reviewed independently.
-              </li>
-              <li class="list-disc">
-                <span class="font-semibold">Disciplined Approvals:  </span> Ensures transparent, structured, and compliant credit decisions.
-              </li>
-             
+              {item.sub_items.map((sub, subIdx) => (
+                <li key={subIdx} class="list-disc">
+                  <span class="font-semibold">{sub.title}: </span> {sub.description}
+                </li>
+              ))}
             </ul>
-          </div>
-          
+          )}
         </div>
+      </div>
+    ))
+  )}
+</div>
+
       </div>
     </div>
   </div>

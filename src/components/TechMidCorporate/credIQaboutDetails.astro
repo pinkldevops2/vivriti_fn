@@ -9,6 +9,8 @@ const slides = [
   "/slides/credlyst/Credlyst_VNL-03.jpg",
   "/slides/credlyst/Credlyst_VNL-04.jpg",
 ];
+
+const {data} = Astro.props;
 --- 
  <div class="w-full">
     <div class="relative overflow-hidden">
@@ -21,11 +23,10 @@ const slides = [
          <h2
         class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
       >
-      Advanced credit and risk engine for <br/>NBFCs and lenders
+     {data.title}
       </h2>
-       <p data-reveal class="fade-up font-normal text-[17px] w-full">
-        Credlyst is a specialised underwriting and risk evaluation platform designed to empower NBFCs with comprehensive credit assessment capabilities. It provides a structured framework for risk evaluation, combining financial health analysis, repayment capacity assessment, and sectoral or geographical exposure insights.<br/><br/>
-Credlyst aims to streamline credit assessment process with well-defined workflows, templates and automated checks by pooling data from various sources ensuring regulatory compliance and disciplined underwriting for mid corporate lending.
+       <p data-reveal class="fade-up font-normal text-[17px] w-full" set:html={data.content}>
+        
       </p>
       </div>
       <div class="w-full hidden md:block md:w-5/12">

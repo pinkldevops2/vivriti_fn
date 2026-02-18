@@ -11,6 +11,19 @@ import CreadIQValueDelivered from "./credIQValueDelivered.astro"
 import ArtemisSlider from './artemisSlider.astro';
 import CredIQSlider from './credIQSlider.astro';
 
+const { posts = [] } = Astro.props;
+
+// Find post with mainHeading = CredIQ
+const credIQPost = posts.find(
+  (post) => post.mainHeading?.toLowerCase() === "credlyst"
+);
+
+const ArtemisPost = posts.find(
+  (post) => post.mainHeading?.toLowerCase() === "artemis"
+);
+
+
+
 ---
 
 <div class="w-full mx-auto relative">
@@ -48,10 +61,10 @@ import CredIQSlider from './credIQSlider.astro';
       class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-100 translate-y-0"
     >
       <section class="md:pt-6">
-       <CreadIQAbout/>
-      <CredIQSlider/>
-       <CredIQKeyFeature/>
-       <CreadIQValueDelivered/>
+      <CreadIQAbout data={credIQPost} />
+<CredIQSlider images={credIQPost?.imageSlider} />
+<CredIQKeyFeature features={credIQPost?.keyFeatures} />
+<CreadIQValueDelivered data={credIQPost} />
       </section>
     </div>
 
@@ -61,10 +74,11 @@ import CredIQSlider from './credIQSlider.astro';
       class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
     >
       <section class="pb-0 md:pt-6">
-        <ArtemisaboutDetails/>
-        <ArtemisSlider/>
-       <ArtemisKeyFeature/>
-       <ArtemisValueDelivered/>
+        <ArtemisaboutDetails data={ArtemisPost} >
+        <ArtemisSlider images={ArtemisPost?.imageSlider}/>
+      
+       <ArtemisKeyFeature features={ArtemisPost?.keyFeatures}/>
+       <ArtemisValueDelivered data={credIQPost} />
       </section>
     </div>
   </div>
