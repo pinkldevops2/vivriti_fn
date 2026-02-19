@@ -70,16 +70,17 @@ const ArtemisPost = posts.find(
 
     <!-- Second tab hidden by default -->
     <div
-      id="financial"
-      class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
-    >
-      <section class="pb-0 md:pt-6">
-        <ArtemisaboutDetails data={ArtemisPost} >
-        <ArtemisSlider images={ArtemisPost?.imageSlider}/>
-        <ArtemisKeyFeature features={ArtemisPost?.keyFeatures}/>
-        <ArtemisValueDelivered data={credIQPost} />
-      </section>
-    </div>
+  id="financial"
+  class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-0 -translate-y-2 hidden"
+>
+  <section class="pb-0 md:pt-6">
+    <ArtemisaboutDetails data={ArtemisPost} />
+    <ArtemisSlider images={ArtemisPost?.imageSlider}/>
+    <ArtemisKeyFeature features={ArtemisPost?.keyFeatures}/>
+    <ArtemisValueDelivered data={ArtemisPost} />
+  </section>
+</div>
+
   </div>
 </div>
 <style>
