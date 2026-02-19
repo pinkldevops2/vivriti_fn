@@ -4,6 +4,8 @@ import ArtemisaboutDetails from "./colendingaboutDetails.astro";
 import ArtemisKeyFeature from "./colendingKeyFeature.astro";
 import ArtemisValueDelivered from "./colendingValueDelivered.astro"
 import ArtemisSlider from './colendingSlider.astro';
+const { posts } = Astro.props;
+
 const TRITONPost = posts.find(
   (post) => post.mainHeading?.toLowerCase() === "vivflo"
 );
