@@ -7,6 +7,7 @@ const slides = [
   "/slides/investron/Investron-02.jpg",
   "/slides/investron/Investron-03.jpg"
 ];
+const {data} = Astro.props;
 --- 
  <div class="w-full">
     <div class="relative overflow-hidden">
@@ -19,11 +20,9 @@ const slides = [
          <h2
         class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
       >
-      Onboard, manage, and grow Alternative Investment Fund (AIF) relationships
+        {data.title}
       </h2>
-       <p data-reveal class="fade-up font-normal mb-3 w-full">
-        Faster onboarding. Fewer errors. Total compliance. Investron brings efficiency and transparency to AIF operations, empowering fund managers and distributors with a fully digital ecosystem.</p><p>
-Seamlessly integrated with Leegality’s e-signature API, Investron enables secure, two-factor signing while automating critical processes like distributor invoicing and brokerage calculations. The result: faster onboarding, greater transparency, and fewer operational bottlenecks for fund managers and distributors alike.
+       <p data-reveal class="fade-up font-normal mb-3 w-full" set:html={data.content}></p>
 
       </p>
       </div>

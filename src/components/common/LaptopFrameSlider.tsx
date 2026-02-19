@@ -1,28 +1,22 @@
 import { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
 
 interface LaptopFrameSliderProps {
-  laptopImage: string;
-  slides: string[];
-  sliderId?: string;
+  readonly laptopImage: string;
+  readonly slides: readonly string[];
+  readonly sliderId?: string;
 }
 
 export default function LaptopFrameSlider({
   laptopImage,
   slides = [],
-  sliderId = "laptop",
 }: LaptopFrameSliderProps) {
   const swiperRef = useRef<any>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  const nextClass = `${sliderId}-next`;
-  const prevClass = `${sliderId}-prev`;
-
-  // 🔥 Handle tab visibility automatically
   useEffect(() => {
     if (!wrapperRef.current) return;
 
@@ -31,29 +25,33 @@ export default function LaptopFrameSlider({
         if (entry.isIntersecting && swiperRef.current) {
           swiperRef.current.update();
           swiperRef.current.autoplay?.start();
+        } else {
+          swiperRef.current?.autoplay?.stop();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.3 }
     );
 
     observer.observe(wrapperRef.current);
-
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="laptop-frame-wrapper" ref={wrapperRef}>
-      {/* Laptop Image */}
+    <div
+      className="laptop-frame-wrapper relative flex flex-col items-center"
+      ref={wrapperRef}
+    >
+      {/* Laptop Frame */}
       <img
         src={laptopImage}
         alt="Laptop Frame"
-        className="laptop-frame"
+        className="laptop-frame w-full max-w-4xl"
       />
 
       {/* Screen Area */}
-      <div className="laptop-screen">
+      <div className="laptop-screen absolute top-[12%] left-[12%] w-[76%] h-[60%] overflow-hidden">
         <Swiper
-          modules={[Navigation, Autoplay]}
+          modules={[Autoplay]}   // ✅ removed Navigation
           slidesPerView={1}
           loop
           observer
@@ -63,21 +61,18 @@ export default function LaptopFrameSlider({
             delay: 2500,
             disableOnInteraction: false,
           }}
-          navigation={{
-            nextEl: `.${nextClass}`,
-            prevEl: `.${prevClass}`,
-          }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
+            swiper.autoplay.start();
           }}
-          className="laptop-swiper"
+          className="h-full"
         >
-          {slides.map((img, index) => (
-            <SwiperSlide key={index}>
+          {slides.map((img) => (
+            <SwiperSlide key={img}>
               <img
                 src={img}
-                alt={`Slide ${index + 1}`}
-                className="slide-image"
+                alt="Slide"
+                className="w-full h-full object-cover"
               />
             </SwiperSlide>
           ))}

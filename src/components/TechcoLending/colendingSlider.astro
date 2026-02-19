@@ -3,34 +3,15 @@ import LogoShape from "../../../public/Vivrithi_logo.svg";
 import LogoShape1 from "../../../public/logowhite.svg";
 import WhoIsItFor from "@/components/common/TechSwiper";
 
-const slides1 = [
-  {
-    id: "01",
-    title: "Credit Teams",
-    desc: "Seamlessly implement policies, manage credit rules, and integrate with bureaus.",
-    img: "/co21.png",
-  },
-  {
-    id: "02",
-    title: "Operations Teams",
-    desc: "Efficiently handle loan creation, disbursement, and collections.",
-    img: "/co31.png",
-  },
- {
-    id: "03",
-    title: "Finance Teams",
-    desc: "Manage reconciliation, co-lender settlements, and financial reporting.",
-    img: "/ts31.png",
-  },
+const { images = [] } = Astro.props;
 
-  {
-    id: "04",
-    title: "Product Teams",
-    desc: "Rapidly configure and deploy loan products across multiple asset classes.",
-    img: "/ts21.png",
-  },
-
-];
+// Convert WP images → slides format (ONLY image)
+const slides1 = images.map((item, index) => ({
+  id: String(index + 1).padStart(2, "0"),
+  img: item.image.sourceUrl,  // <--- nested under item.image
+  title: item.title,
+  desc: item.desc
+}));
 ---
 
 <div class="w-full xl:px-0">

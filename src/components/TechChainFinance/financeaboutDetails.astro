@@ -8,6 +8,7 @@ const slides = [
   "/slides/trition/Triton-03.jpg",
   "/slides/trition/Triton-04.jpg",
 ];
+const {data} = Astro.props;
 --- 
  <div class="w-full">
     <div class="relative overflow-hidden">
@@ -20,14 +21,10 @@ const slides = [
          <h2
         class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
       >
-       Streamlining supply chain finance <br/>end-to-end
+       {data.title}
       </h2>
-       <p data-reveal class="fade-up font-normal w-full mb-4">
-        Built for speed, compliance, and scale, Triton is an API-first Supply Chain Finance Loan Origination System (SCF LOS) that streamlines onboarding, underwriting, and loan approvals for supply chain partners. The platform supports anchor-led programs, counterparty-driven finance, and flexible buyer or seller workflows, delivering operational efficiency, transparency, and compliance.
-      </p>
-
-      <p>
-        Triton provides a robust backend engine for underwriting, credit evaluation, and loan approval. It integrates seamlessly with LMS systems and future-ready modules such as co-lending and refinancing. Triton ensures smart credit decisions, reduces manual intervention, and provides end-to-end visibility and control over SCF operations.
+       <p data-reveal class="fade-up font-normal w-full mb-4" set:html={data.content}>
+      
       </p>
       
       </div>

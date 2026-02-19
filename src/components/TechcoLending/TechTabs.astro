@@ -4,7 +4,9 @@ import ArtemisaboutDetails from "./colendingaboutDetails.astro";
 import ArtemisKeyFeature from "./colendingKeyFeature.astro";
 import ArtemisValueDelivered from "./colendingValueDelivered.astro"
 import ArtemisSlider from './colendingSlider.astro';
-
+const TRITONPost = posts.find(
+  (post) => post.mainHeading?.toLowerCase() === "vivflo"
+);
 ---
 
 <div class="w-full mx-auto relative">
@@ -34,10 +36,10 @@ import ArtemisSlider from './colendingSlider.astro';
       class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-100 translate-y-0"
     >
       <section class="md:pt-6">
-       <ArtemisaboutDetails/>
-        <ArtemisSlider/>
-       <ArtemisKeyFeature/>
-       <ArtemisValueDelivered/>
+       <ArtemisaboutDetails data={TRITONPost} />
+       <ArtemisSlider images={TRITONPost?.imageSlider} />
+<ArtemisKeyFeature features={TRITONPost?.keyFeatures} />
+<ArtemisValueDelivered data={TRITONPost} />
       </section>
     </div>
 

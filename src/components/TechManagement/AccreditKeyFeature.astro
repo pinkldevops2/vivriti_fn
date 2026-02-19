@@ -1,6 +1,7 @@
 ---
 import LogoShape from "../../../public/Vivrithi_logo.svg";
 import LogoShape1 from "../../../public/logowhite.svg";
+const { features = [] } = Astro.props;
 ---
 
 <div class="w-full xl:px-0 md:px-[0px] md:pt-[70px] pt-[40px] px-[10px] md:px-[20px]">
@@ -15,157 +16,35 @@ import LogoShape1 from "../../../public/logowhite.svg";
         Key features
       </h2>
       </div>
-      <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-2 gap-x-15 gap-y-5">
-        <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">01</div>
-          <h3
-            class="text-[22px] md:text-[28px] leading-[34px] font-normal mt-4 gradient-text"
-          >
-            Investor Accreditation Onboarding
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
+           <div class="w-full md:w-10/12 grid grid-cols-1 sm:grid-cols-1 gap-x-15 gap-y-5">
+
+       <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-15 gap-y-5">
+  {features.map((section, sIdx) =>
+    section.items?.map((item, iIdx) => (
+      <div class="w-full" key={`${sIdx}-${iIdx}`}>
+        <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
+        <div class="border-1 border-dashed border-[#F58220] my-6"></div>
+        <div class="number_fill text-[14px]">{String(iIdx + 1).padStart(2, '0')}</div>
+        <h3 class="text-[22px] md:text-[28px] font-heading leading-[34px] font-normal mt-4 gradient-text">
+          {item.title}
+        </h3>
+        <div class="mt-2 mb-5 desc text-sm md:text-lg">
+        
+
+          {item.sub_items?.length > 0 && (
             <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                Capture investor data (income, net worth, and financial assets).
-
-              </li>
-              <li class="list-disc">
-                Auto-classify into SEBI-defined tiers (Category 1, 2, and 3).
-              </li>
-              <li class="list-disc">
-                Upload and validate supporting financial documents.
-
-              </li>
+              {item.sub_items.map((sub, subIdx) => (
+                <li key={subIdx} class="list-disc">
+                  <span class="font-semibold">{sub.title}: </span> {sub.description}
+                </li>
+              ))}
             </ul>
-          </div>
+          )}
         </div>
-        <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">02</div>
-          <h3
-            class="text-[22px] md:text-[28px] leading-[34px] font-normal mt-4 gradient-text"
-          >
-            Secure eSign Integration
-
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
-            <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                API-driven integration with platforms like Leegality.
-
-              </li>
-              <li class="list-disc">
-                OTP-secured two-factor authentication.
-
-              </li>
-              <li class="list-disc">
-                Time-stamped digital audit trail for compliance.</li>
-
-            </ul>
-          </div>
-        </div>
-        <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">03</div>
-          <h3
-            class="text-[22px] md:text-[28px] leading-[34px] font-normal mt-4 gradient-text"
-          >
-           Auditor Verification Workflow
-
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
-            <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                Dedicated portal for auditors to review submissions.
-
-              </li>
-              <li class="list-disc">
-                Automated generation of verification certificates.
-
-
-              </li>
-              <li class="list-disc">
-                Status tracking and alerts for discrepancies.</li>
-
-            </ul>
-          </div>
-          
-        </div>
-
-         <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">04</div>
-          <h3
-            class="text-[22px] md:text-[28px] leading-[34px] font-normal mt-4 gradient-text"
-          >
-            Regulatory Submission Engine
-
-
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
-            <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                Automated document compilation for SEBI submissions.
-
-
-              </li>
-              <li class="list-disc">
-                Approval tracking and renewal alerts.
-
-
-              </li>
-              <li class="list-disc">
-                Compliance-ready records for audits.
-
-
-
-              </li>
-             
-            </ul>
-          </div>
-          
-        </div>
-
-
-        <div class="w-full">
-          <img src={LogoShape.src} alt="Vivrithi" class="w-[50px] h-auto" />
-          <div class="border-1 border-dashed border-[#F58220] my-6"></div>
-          <div class="number_fill text-[14px]">05</div>
-          <h3
-            class="text-[22px] md:text-[28px] leading-[34px] font-normal mt-4 gradient-text"
-          >
-           Accreditation Calculation Engine
-
-
-
-          </h3>
-          <div class="mt-2 mb-5 desc text-sm md:text-lg">
-            <ul class="pl-4 flex flex-col gap-y-6">
-              <li class="list-disc">
-                Real-time eligibility checks based on financial thresholds.
-
-
-              </li>
-              <li class="list-disc">
-                Slab-based logic and dynamic document requirements.
-
-              <li class="list-disc">
-                Integration with financial data sources for real-time accuracy.
-
-
-
-
-              </li>
-             
-            </ul>
-          </div>
-          
-        </div>
+      </div>
+    ))
+  )}
+</div>
       </div>
     </div>
   </div>

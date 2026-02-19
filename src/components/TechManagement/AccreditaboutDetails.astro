@@ -9,6 +9,7 @@ const slides = [
   "/slides/accreditation/Accreditation-04.jpg",
   "/slides/accreditation/Accreditation-05.jpg"
 ];
+const {data} = Astro.props;
 --- 
  <div class="w-full">
     <div class="relative overflow-hidden">
@@ -21,11 +22,9 @@ const slides = [
          <h2
         class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
       >
-      Digital-first accreditation — fast, secure, and compliant
+    {data.title}
       </h2>
-       <p data-reveal class="fade-up font-normal mb-3 w-full">
-        Investor accreditation doesn’t have to be slow or complicated. The Accreditation Platform makes it seamless by capturing data, verifying details, and classifying investors as per SEBI guidelines with speed and accuracy.</p><p>
-A digital-first solution, Accreditation automates end-to-end workflows, integrates securely with verification and eSign platforms, and ensures compliance with SEBI’s defined thresholds. By reducing manual effort and errors, it delivers faster onboarding, real-time visibility, and audit-ready accuracy, giving stakeholders complete confidence in the accreditation lifecycle.
+       <p data-reveal class="fade-up font-normal mb-3 w-full" set:html={data.content}>
 
       </p>
       </div>

@@ -4,6 +4,12 @@ import ArtemisaboutDetails from "./financeaboutDetails.astro";
 import ArtemisKeyFeature from "./financeKeyFeature.astro";
 import ArtemisValueDelivered from "./financeValueDelivered.astro"
 import ArtemisSlider from './financeSlider.astro';
+const { posts = [] } = Astro.props;
+
+// Find post with mainHeading = CredIQ
+const TRITONPost = posts.find(
+  (post) => post.mainHeading?.toLowerCase() === "triton"
+);
 
 ---
 
@@ -34,10 +40,11 @@ import ArtemisSlider from './financeSlider.astro';
       class="borrowvcl-panel inset-0 transition-all duration-500 ease-out transform opacity-100 translate-y-0"
     >
       <section class="md:pt-6">
-       <ArtemisaboutDetails/>
-        <ArtemisSlider/>
-       <ArtemisKeyFeature/>
-       <ArtemisValueDelivered/>
+       <ArtemisaboutDetails data={TRITONPost} />
+       <ArtemisSlider images={TRITONPost?.imageSlider} />
+<ArtemisKeyFeature features={TRITONPost?.keyFeatures} />
+<ArtemisValueDelivered data={TRITONPost} />
+      
       </section>
     </div>
 

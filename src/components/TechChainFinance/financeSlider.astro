@@ -3,22 +3,15 @@ import LogoShape from "../../../public/Vivrithi_logo.svg";
 import LogoShape1 from "../../../public/logowhite.svg";
 import WhoIsItFor from "@/components/common/TechArtemisSwiper";
 
-const slides1 = [
-  {
-    id: "01",
-    title: "Large Corporates and OEMs, including Auto and FMCG Majors.",
-    /* desc: "Large Corporates and OEMs, including Auto and FMCG Majors.", */
-    img: "/techs3.png",
-  },
-  {
-    id: "02",
-    title: "Supply Chain Finance Counterparties",
-    /* desc: "Supply Chain Finance Counterparties", */
-    img: "/techs2.png",
-  },
+const { images = [] } = Astro.props;
 
-
-];
+// Convert WP images → slides format (ONLY image)
+const slides1 = images.map((item, index) => ({
+  id: String(index + 1).padStart(2, "0"),
+  img: item.image.sourceUrl,  // <--- nested under item.image
+  title: item.title,
+  desc: item.desc
+}));
 ---
 
 <div class="w-full xl:px-0">

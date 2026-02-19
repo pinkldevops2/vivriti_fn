@@ -9,6 +9,7 @@ const slides = [
   "/slides/fund/Fund-04.jpg",
   "/slides/fund/Fund-05.jpg"
 ];
+const {data} = Astro.props;
 --- 
  <div class="w-full">
     <div class="relative overflow-hidden">
@@ -21,12 +22,9 @@ const slides = [
          <h2
         class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
       >
-      One connected platform for every fund workflow
+     {data.title}
       </h2>
-       <p data-reveal class="fade-up font-normal mb-3 w-full">
-        Fund is a comprehensive platform built to manage the full lifecycle of Alternative Investment Funds (AIFs). From fund structuring to NAV computation and reporting, it provides a single, integrated system that ensures accuracy, compliance, and operational efficiency. 
-</p>
-<p class="mb-3">The platform has two core modules:</p>
+       <p data-reveal class="fade-up font-normal mb-3 w-full" set:html={data.content}></p>
 <ul class="ml-6">
   <li class="mb-3 list-disc">
     Fund Management (Upstream): Configure fund structures, legal and regulatory data, and key documents with governance controls.

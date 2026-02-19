@@ -6,12 +6,77 @@ import FooterMobile from "../components/common/FooterMobile.astro";
 import TechCommonIntro from '@/components/TechCommon/techCommonIntro.astro';
 import TechCommonTabs from  '@/components/TechCommon/TechTabs.astro';
 import ContactButton from '../components/common/HomeGetInTouch.jsx';
+import { GRAPHQL } from '@/config/graphql';
+
+const query = `
+query GetTechs {
+  techs {
+    nodes {
+      id
+      title
+      mainHeading
+      content
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+      techCategories {
+        nodes {
+          name
+          slug
+        }
+      }
+      imageSlider {
+      id
+      title
+      desc
+      image {
+        sourceUrl
+        mediaItemUrl
+      }
+    }
+     
+      keyFeatures {
+        heading
+        items {
+          title
+          description
+          sub_items {
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+// ✅ FETCH DATA
+const res = await fetch(GRAPHQL, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ query }),
+});
+
+const json = await res.json();
+
+
+const techs = json?.data?.techs?.nodes || [];
+
+// Filter category: mind-colending
+const mindColendingPosts = techs.filter((tech) =>
+  tech.techCategories?.nodes?.some(
+    (cat) => cat.slug === "common-capabilities"
+  )
+);
 ---
 <Layout>
     <ContactButton label={"Tell Us Your Portfolio Needs"} href={"/contact-us/?segment=tech#leadgen"} />
 <Header />
 <TechCommonIntro/>
-<TechCommonTabs/>
+<TechCommonTabs posts={mindColendingPosts}/>
 <Footer />
 <FooterMobile/>
 </Layout>

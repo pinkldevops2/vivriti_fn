@@ -3,38 +3,15 @@ import LogoShape from "../../../public/Vivrithi_logo.svg";
 import LogoShape1 from "../../../public/logowhite.svg";
 import WhoIsItFor from "@/components/common/TechSwiper";
 
-const slides1 = [
-  {
-    id: "01",
-    title: "AIF Fund Managers (Category 1, 2, and 3)",
-    desc: "Managing fund structures and investment operations.",
-    img: "/fund1.png",
-  },
-  {
-    id: "02",
-    title: "Middle Office and Fund Operations Teams",
-    desc: "Handling contributions, NAV calculations, and distributions.",
-    img: "/fund2.png",
-  },
-  {
-    id: "03",
-    title: "Compliance and Risk Management Professionals",
-    desc: "Ensuring regulatory adherence and audit readiness.",
-    img: "/fund3.png",
-  },
-  {
-    id: "04",
-    title: "Fund Administrators and Accountants",
-    desc: "Overseeing accounting, reporting, and reconciliations.",
-    img: "/fund4.png",
-  },
-  {
-    id: "05",
-    title: "Product Structuring Teams",
-    desc: "Configuring fund products and key parameters efficiently.",
-    img: "/fund5.png",
-  }
-];
+const { images = [] } = Astro.props;
+
+// Convert WP images → slides format (ONLY image)
+const slides1 = images.map((item, index) => ({
+  id: String(index + 1).padStart(2, "0"),
+  img: item.image.sourceUrl,  // <--- nested under item.image
+  title: item.title,
+  desc: item.desc
+}));
 ---
 
 <div class="w-full xl:px-0">

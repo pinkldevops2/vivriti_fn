@@ -3,20 +3,15 @@ import LogoShape from "../../../public/Vivrithi_logo.svg";
 import LogoShape1 from "../../../public/logowhite.svg";
 import WhoIsItFor from "@/components/common/TechArtemisSwiper";
 
-const slides1 = [
-  {
-    id: "01",
-    title: "Operations teams",
-    desc: "End-to-end disbursements, repayments, and servicing in one place — no spreadsheets, no manual reconciliations.",
-    img: "/zeus1.png",
-  },
-  {
-    id: "02",
-    title: "Finance teams",
-    desc: "Real-time visibility into exposures and cash flows across lending and securities, ensuring consistent and reliable numbers.",
-    img: "/zeus2.png",
-  }
-];
+const { images = [] } = Astro.props;
+
+// Convert WP images → slides format (ONLY image)
+const slides1 = images.map((item, index) => ({
+  id: String(index + 1).padStart(2, "0"),
+  img: item.image.sourceUrl,  // <--- nested under item.image
+  title: item.title,
+  desc: item.desc
+}));
 ---
 
 <div class="w-full xl:px-0">

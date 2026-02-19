@@ -8,6 +8,7 @@ const slides = [
   "/slides/comm/Communication Engine-02.jpg",
   "/slides/comm/Communication Engine-01.jpg"
 ];
+const {data} = Astro.props;
 --- 
  <div class="w-full">
     <div class="relative overflow-hidden">
@@ -20,10 +21,9 @@ const slides = [
          <h2
         class="text-[28px] md:text-[35px] md:text-4xl font-heading leading-[120%] mb-8 gradient-text w-full"
       >
-      Delivering the right message, to the right audience, at the right time
+      {data.title}
       </h2>
-       <p data-reveal class="fade-up font-normal text-[17px] w-full">
-        Built for the Fintech ecosystem, the Communication Engine is a robust internal platform that streamlines and automates messaging across financial workflows. It ensures timely, secure, and context-aware communication between systems, teams, and customers — delivering precision and reliability at scale.
+       <p data-reveal class="fade-up font-normal text-[17px] w-full" set:html={data.content}>
       </p>
       </div>
       <div class="w-full hidden md:block md:w-5/12">
